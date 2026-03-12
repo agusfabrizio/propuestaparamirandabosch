@@ -49,7 +49,7 @@
                         Documentación gráfica y precisa.
                     </p>
                 </div>
-                <div class="text-base md:text-lg text-gray-700 space-y-6 font-light leading-relaxed">
+                <div class="text-base md:text-lg text-gray-700 space-y-6 font-light leading-relaxed text-balance">
                     <p>Hola. Soy Agustín, estudiante avanzado de Arquitectura (FADU, UBA).</p>
                     <p>Vengo de una familia de carpinteros a medida. Llevo años realizando relevamientos para la empresa familiar, donde aprendí de primera mano que un centímetro de diferencia cambia todo y desarrollé un cuidado absoluto por el detalle en los interiores.</p>
                     <p>A nivel profesional, cuento con experiencia trabajando para <a href="https://picast.world/proyectos/" target="_blank" rel="noopener noreferrer" class="font-medium text-black underline underline-offset-4 hover:text-gray-500 transition-colors">Picast Astori</a>. Una de mis obras destacadas en relevamiento fue la torre <strong>L'Avenue Libertador</strong>, diseñada por el estudio <strong>Zaha Hadid Architects</strong>.</p>
@@ -60,7 +60,7 @@
     </section>
 
     <!-- 01 / Honorarios -->
-    <section class="px-6 border-b-2 border-black">
+    <section class="px-6 border-b-2 border-black text-balance">
         <div class="max-w-7xl mx-auto py-20">
             <h2 class="text-xs font-semibold uppercase tracking-widest mb-12">01 / Estructura de Honorarios</h2>
             
@@ -71,40 +71,61 @@
                     <div class="col-span-4 text-right">Valor</div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors text-balance">
-                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight uppercase font-medium">Studio</div>
-                    <div class="col-span-4 text-gray-600 self-center">Hasta 60 m²</div>
-                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 50</div>
+                <!-- Studio -->
+                <div class="flex md:grid md:grid-cols-12 justify-between items-center py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="md:col-span-4 flex flex-col">
+                        <span class="text-2xl md:text-3xl tracking-tight uppercase font-medium">Studio</span>
+                        <span class="text-gray-400 text-xs md:hidden font-light">Hasta 60 m²</span>
+                    </div>
+                    <div class="hidden md:block md:col-span-4 text-gray-600 self-center">Hasta 60 m²</div>
+                    <div class="md:col-span-4 text-right text-2xl md:text-3xl font-medium">USD 80</div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors text-balance">
-                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight uppercase font-medium">Standard</div>
-                    <div class="col-span-4 text-gray-600 self-center">61 a 120 m²</div>
-                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 80</div>
+                <!-- Standard -->
+                <div class="flex md:grid md:grid-cols-12 justify-between items-center py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="md:col-span-4 flex flex-col">
+                        <span class="text-2xl md:text-3xl tracking-tight uppercase font-medium">Standard</span>
+                        <span class="text-gray-400 text-xs md:hidden font-light">61 a 120 m²</span>
+                    </div>
+                    <div class="hidden md:block md:col-span-4 text-gray-600 self-center">61 a 120 m²</div>
+                    <div class="md:col-span-4 text-right text-2xl md:text-3xl font-medium">USD 110</div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors text-balance">
-                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight uppercase font-medium">Exclusive</div>
-                    <div class="col-span-4 text-gray-600 self-center">121 a 250 m²</div>
-                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 110</div>
+                <!-- Exclusive -->
+                <div class="flex md:grid md:grid-cols-12 justify-between items-center py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="md:col-span-4 flex flex-col">
+                        <span class="text-2xl md:text-3xl tracking-tight uppercase font-medium">Exclusive</span>
+                        <span class="text-gray-400 text-xs md:hidden font-light">121 a 250 m²</span>
+                    </div>
+                    <div class="hidden md:block md:col-span-4 text-gray-600 self-center">121 a 250 m²</div>
+                    <div class="md:col-span-4 text-right text-2xl md:text-3xl font-medium">USD 140</div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors text-balance">
-                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight uppercase font-medium">Mega Units</div>
-                    <div class="col-span-4 text-gray-600 self-center">251 a 600 m²</div>
-                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 130</div>
+                <!-- Mega Units -->
+                <div class="flex md:grid md:grid-cols-12 justify-between items-center py-8 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="md:col-span-4 flex flex-col">
+                        <span class="text-2xl md:text-3xl tracking-tight uppercase font-medium">Mega Units</span>
+                        <span class="text-gray-400 text-xs md:hidden font-light">251 a 600 m²</span>
+                    </div>
+                    <div class="hidden md:block md:col-span-4 text-gray-600 self-center">251 a 600 m²</div>
+                    <div class="md:col-span-4 text-right text-2xl md:text-3xl font-medium">USD 160</div>
                 </div>
 
-                <div class="flex flex-col border-b border-black py-8 group hover:bg-gray-50 transition-colors text-balance">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                        <div class="col-span-4 text-2xl md:text-3xl tracking-tight uppercase font-medium">Grandes Superficies</div>
-                        <div class="col-span-4 text-gray-600 self-center">601 m² a +1000 m²</div>
-                        <div class="col-span-4 text-left md:text-right text-lg md:text-xl font-medium self-center">
-                            A Cotizar <span class="text-xs font-normal text-gray-400 block md:inline uppercase tracking-tighter">(Tope USD 220)</span>
+                <!-- Grandes Superficies -->
+                <div class="flex flex-col border-b border-black py-8 group hover:bg-gray-50 transition-colors">
+                    <div class="flex md:grid md:grid-cols-12 justify-between items-center">
+                        <div class="md:col-span-4 flex flex-col">
+                            <span class="text-2xl md:text-3xl tracking-tight uppercase font-medium">Grandes Superficies</span>
+                            <span class="text-gray-400 text-xs md:hidden font-light tracking-tighter">601 m² a +1000 m²</span>
+                        </div>
+                        <div class="hidden md:block md:col-span-4 text-gray-600 self-center">601 m² a +1000 m²</div>
+                        <div class="md:col-span-4 text-right font-medium">
+                            <span class="text-lg md:text-xl">A Cotizar</span>
+                            <span class="block text-[10px] text-gray-400 uppercase tracking-tighter">(Tope USD 280)</span>
                         </div>
                     </div>
-                    <div class="mt-8 bg-gray-50 p-8 border border-gray-200">
-                        <p class="text-sm text-gray-500 mb-6 font-light uppercase tracking-widest">Adicional decreciente por m² (Precio promocional por unidades grandes)</p>
+                    <div class="mt-8 bg-gray-50 p-6 md:p-8 border border-gray-200">
+                        <p class="text-sm text-gray-500 mb-6 font-light uppercase tracking-widest text-center md:text-left">Adicional decreciente por m² (Precio promocional)</p>
                         <div class="flex flex-col sm:flex-row items-center gap-4">
                             <input type="number" id="inputM2" placeholder="m² totales" class="bg-white border border-gray-300 p-4 w-full sm:w-64 focus:outline-none focus:border-black font-medium text-center text-xl">
                             <button onclick="calcularCotizacion()" class="bg-black text-white px-10 py-4 w-full sm:w-auto hover:bg-neutral-800 transition-colors text-xs uppercase tracking-widest font-bold">Cotizar Unidad</button>
@@ -124,36 +145,35 @@
                 <div class="lg:col-span-7">
                     <p class="text-xl text-gray-800 leading-snug font-light mb-10 text-balance">Al confirmar <strong>5 o más relevamientos</strong>, se aplica automáticamente un <strong>30% de descuento (OFF)</strong> sobre el total neto.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <button onclick="addPkg('studio')" class="group flex justify-between items-center p-8 border border-gray-200 hover:border-black transition-all text-left uppercase">
-                            <div><div class="text-xl font-bold">Studio</div><div class="text-gray-400 font-light text-sm">USD 50</div></div>
-                            <div class="text-2xl font-light text-gray-300 group-hover:text-black">+</div>
+                        <!-- Botones 50% más bajos (p-4 en lugar de p-8) -->
+                        <button onclick="addPkg('studio')" class="group flex justify-between items-center p-4 border border-gray-200 hover:border-black transition-all text-left uppercase">
+                            <div><div class="text-lg font-bold">Studio</div><div class="text-gray-400 font-light text-xs">USD 80</div></div>
+                            <div class="text-xl font-light text-gray-300 group-hover:text-black">+</div>
                         </button>
-                        <button onclick="addPkg('standard')" class="group flex justify-between items-center p-8 border border-gray-200 hover:border-black transition-all text-left uppercase">
-                            <div><div class="text-xl font-bold">Standard</div><div class="text-gray-400 font-light text-sm">USD 80</div></div>
-                            <div class="text-2xl font-light text-gray-300 group-hover:text-black">+</div>
+                        <button onclick="addPkg('standard')" class="group flex justify-between items-center p-4 border border-gray-200 hover:border-black transition-all text-left uppercase">
+                            <div><div class="text-lg font-bold">Standard</div><div class="text-gray-400 font-light text-xs">USD 110</div></div>
+                            <div class="text-xl font-light text-gray-300 group-hover:text-black">+</div>
                         </button>
-                        <button onclick="addPkg('exclusive')" class="group flex justify-between items-center p-8 border border-gray-200 hover:border-black transition-all text-left uppercase">
-                            <div><div class="text-xl font-bold">Exclusive</div><div class="text-gray-400 font-light text-sm">USD 110</div></div>
-                            <div class="text-2xl font-light text-gray-300 group-hover:text-black">+</div>
+                        <button onclick="addPkg('exclusive')" class="group flex justify-between items-center p-4 border border-gray-200 hover:border-black transition-all text-left uppercase">
+                            <div><div class="text-lg font-bold">Exclusive</div><div class="text-gray-400 font-light text-xs">USD 140</div></div>
+                            <div class="text-xl font-light text-gray-300 group-hover:text-black">+</div>
                         </button>
-                        <button onclick="addPkg('mega')" class="group flex justify-between items-center p-8 border border-gray-200 hover:border-black transition-all text-left uppercase">
-                            <div><div class="text-xl font-bold">Mega Unit</div><div class="text-gray-400 font-light text-sm">USD 130</div></div>
-                            <div class="text-2xl font-light text-gray-300 group-hover:text-black">+</div>
+                        <button onclick="addPkg('mega')" class="group flex justify-between items-center p-4 border border-gray-200 hover:border-black transition-all text-left uppercase">
+                            <div><div class="text-lg font-bold">Mega Unit</div><div class="text-gray-400 font-light text-xs">USD 160</div></div>
+                            <div class="text-xl font-light text-gray-300 group-hover:text-black">+</div>
                         </button>
                     </div>
                 </div>
                 
-                <div class="lg:col-span-5 relative">
-                    <!-- Sello fuera del cuadro, color esmeralda -->
-                    <div id="selloDescuento" class="absolute -top-10 -right-10 bg-emerald-500 text-white w-24 h-24 rounded-full flex items-center justify-center font-black text-2xl rotate-12 scale-0 transition-transform duration-500 z-10">
+                <div class="lg:col-span-5 relative mt-12 md:mt-0">
+                    <div id="selloDescuento" class="absolute -top-10 -right-4 md:-right-10 bg-emerald-500 text-white w-20 md:w-24 h-20 md:h-24 rounded-full flex items-center justify-center font-black text-xl md:text-2xl rotate-12 scale-0 transition-transform duration-500 z-10">
                         30%
                     </div>
                     
-                    <!-- Carrito de Pedido claro -->
-                    <div class="bg-gray-50 border border-gray-200 p-10 h-full flex flex-col relative text-black">
+                    <div class="bg-gray-50 border border-gray-200 p-8 md:p-10 h-full flex flex-col relative text-black">
                         <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-8 border-b border-gray-200 pb-4">Carrito de Pedido</h3>
                         <div id="pkgList" class="flex-1 space-y-6 text-sm">
-                            <div class="text-gray-400 italic">Seleccioná unidades para aplicar el descuento.</div>
+                            <div class="text-gray-400 italic font-light">Seleccioná unidades para aplicar el descuento.</div>
                         </div>
                         <div class="border-t border-gray-200 pt-8 space-y-4 mt-auto text-right">
                             <div class="flex justify-between text-gray-500 font-light"><span>Subtotal</span><span id="pkgSub" class="text-black">USD 0</span></div>
@@ -171,7 +191,7 @@
     <section class="px-6 border-b-2 border-black">
         <div class="max-w-7xl mx-auto py-20 flex flex-col md:flex-row gap-12">
             <div class="md:w-1/3 text-xs font-bold uppercase tracking-widest">03 / Entregables & Pago</div>
-            <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-16 text-balance">
+            <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-16 text-balance text-center md:text-left">
                 <div>
                     <h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">Modalidad 50/50</h3>
                     <p class="text-gray-600 font-light leading-relaxed">Adelanto para reserva de fecha y saldo contraentrega del material digital final.</p>
@@ -275,7 +295,7 @@
             const res = document.getElementById('resultadoCotizacion');
             if (isNaN(m2) || m2 <= 0) return;
             if (m2 > 600) {
-                const total = 130 + 90 * (1 - Math.exp(-(m2 - 600) / 400));
+                const total = 160 + 120 * (1 - Math.exp(-(m2 - 600) / 400));
                 res.innerHTML = `USD ${total.toFixed(0)}`;
                 res.className = "text-3xl font-bold text-black animate-pulse";
             } else {
@@ -283,7 +303,7 @@
             }
         }
 
-        const precios = { studio: 50, standard: 80, exclusive: 110, mega: 130 };
+        const precios = { studio: 80, standard: 110, exclusive: 140, mega: 160 };
         const nombres = { studio: 'Studio', standard: 'Standard', exclusive: 'Exclusive', mega: 'Mega Unit' };
         let carrito = { studio: 0, standard: 0, exclusive: 0, mega: 0 };
 
@@ -310,7 +330,7 @@
                 }
             }
 
-            if(n === 0) html = '<div class="text-gray-400 italic font-light">Seleccioná unidades para aplicar el descuento.</div>';
+            if(n === 0) html = '<div class="text-gray-600 italic font-light">Seleccioná unidades para aplicar el descuento.</div>';
             
             let d = 0;
             const sel = document.getElementById('selloDescuento'), row = document.getElementById('pkgDescRow'), msg = document.getElementById('pkgAhorroMsg');
