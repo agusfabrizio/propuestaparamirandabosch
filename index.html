@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustín Fabrizio | Propuesta Miranda Bosch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000;
+        }
+        /* Acordeón ultra minimalista */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .2s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; margin-top: -5px}
+            100%  {opacity: 1; margin-top: 0px}
+        }
+        /* Ocultar flechas numéricas en inputs */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white">
+
+    <!-- Header Estilo Dossier -->
+    <header class="fixed w-full z-50 bg-white border-b-2 border-black">
+        <div class="px-6 py-4 flex flex-col md:flex-row justify-between md:items-end text-xs font-semibold uppercase tracking-widest gap-4 md:gap-0">
+            <div>
+                <span class="block text-2xl md:text-3xl font-bold tracking-tight mb-1 md:mb-0">Agustín Fabrizio</span>
+            </div>
+            <div class="text-left md:text-right">
+                <span class="block">Propuesta de Servicio</span>
+                <span class="block text-gray-500">Para: Miranda Bosch</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section / El Perfil -->
+    <section class="pt-40 pb-20 px-6 border-b-2 border-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-10">
+                <div>
+                    <p class="text-2xl md:text-4xl font-medium leading-snug tracking-tight">
+                        Documentación gráfica y precisa.
+                    </p>
+                </div>
+                <div class="text-base md:text-lg text-gray-700 space-y-6 font-light leading-relaxed">
+                    <p>
+                        Hola. Soy Agustín, estudiante avanzado de Arquitectura (FADU, UBA).
+                    </p>
+                    <p>
+                        Vengo de una familia de carpinteros a medida. Llevo años realizando relevamientos para la empresa familiar, donde aprendí de primera mano que un centímetro de diferencia cambia todo y desarrollé un cuidado absoluto por el detalle en los interiores.
+                    </p>
+                    <p>
+                        A nivel profesional, cuento con experiencia trabajando para <a href="https://picast.world/proyectos/" target="_blank" rel="noopener noreferrer" class="font-medium text-black underline underline-offset-4 hover:text-gray-500 transition-colors">Picast Astori</a>. Una de mis obras destacadas en relevamiento fue la torre <strong>L'Avenue Libertador</strong>, diseñada por el estudio <strong>Zaha Hadid Architects</strong>.
+                    </p>
+                    <p>
+                        Tengo experiencia avanzada en el uso de herramientas digitales y cuento con elementos de medición propios, lo que me permite tener disponibilidad inmediata para abarcar nuevas propiedades.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01 / Tabla de Honorarios -->
+    <section class="px-6 border-b-2 border-black">
+        <div class="max-w-7xl mx-auto py-20">
+            <h2 class="text-xs font-semibold uppercase tracking-widest mb-12">01 / Estructura de Honorarios</h2>
+            
+            <div class="flex flex-col border-t-2 border-black">
+                
+                <!-- Headers Tabla -->
+                <div class="hidden md:grid grid-cols-12 gap-4 py-4 border-b border-black text-xs font-semibold uppercase tracking-widest text-gray-500">
+                    <div class="col-span-4">Tipología</div>
+                    <div class="col-span-4">Superficie</div>
+                    <div class="col-span-4 text-right">Valor</div>
+                </div>
+
+                <!-- Fila 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight">Studio</div>
+                    <div class="col-span-4 text-gray-600 self-center">Hasta 60 m²</div>
+                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 50</div>
+                </div>
+
+                <!-- Fila 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight">Standard</div>
+                    <div class="col-span-4 text-gray-600 self-center">61 a 120 m²</div>
+                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 80</div>
+                </div>
+
+                <!-- Fila 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight">Exclusive</div>
+                    <div class="col-span-4 text-gray-600 self-center">121 a 250 m²</div>
+                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 110</div>
+                </div>
+
+                <!-- Fila 4 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-4 text-2xl md:text-3xl tracking-tight">Mega Units</div>
+                    <div class="col-span-4 text-gray-600 self-center">251 a 600 m²</div>
+                    <div class="col-span-4 text-left md:text-right text-2xl md:text-3xl font-medium self-center">USD 130</div>
+                </div>
+
+                <!-- Fila 5: Grandes Superficies (Calculadora) -->
+                <div class="flex flex-col border-b border-black py-6 group hover:bg-gray-50 transition-colors">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                        <div class="col-span-4 text-2xl md:text-3xl tracking-tight">Grandes Superficies</div>
+                        <div class="col-span-4 text-gray-600 self-center">601 m² a +1000 m²</div>
+                        <div class="col-span-4 text-left md:text-right text-lg md:text-xl font-medium self-center">
+                            A Cotizar <span class="text-sm font-normal text-gray-500 block md:inline">(Tope máx. USD 220)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-gray-100 p-6 border border-gray-200">
+                        <p class="text-sm text-gray-600 mb-4 font-light">Se aplica un adicional decreciente por m² para garantizar precios promocionales en grandes unidades.</p>
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <input type="number" id="inputM2" placeholder="Ingresar m² (ej. 800)" class="border border-gray-300 p-3 w-full sm:w-64 focus:outline-none focus:border-black font-medium text-center">
+                            <button onclick="calcularCotizacion()" class="bg-black text-white px-8 py-3 w-full sm:w-auto hover:bg-gray-800 transition-colors text-xs uppercase tracking-widest font-semibold">
+                                Calcular Valor
+                            </button>
+                            <div id="resultadoCotizacion" class="text-2xl font-medium w-full sm:w-auto text-center sm:text-left sm:ml-4 h-8 flex items-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 / Paquetes Personalizados (Bulk) -->
+    <section class="px-6 border-b-2 border-black bg-white">
+        <div class="max-w-7xl mx-auto py-20">
+            <h2 class="text-xs font-semibold uppercase tracking-widest mb-12">02 / Paquetes Personalizados</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-7">
+                    <p class="text-gray-600 leading-relaxed font-light mb-8">
+                        Armá paquetes personalizados según el inventario actual. Al confirmar <strong>5 o más relevamientos</strong>, el sistema aplica automáticamente un <strong>30% de descuento (OFF)</strong> sobre el total del servicio.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button onclick="addPkg('studio')" class="group flex justify-between items-center p-6 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all text-left">
+                            <div>
+                                <div class="text-xl font-medium mb-1 uppercase tracking-tight">Studio</div>
+                                <div class="text-sm text-gray-500 group-hover:text-gray-400 font-light">USD 50</div>
+                            </div>
+                            <div class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-white text-xl font-light">+</div>
+                        </button>
+                        
+                        <button onclick="addPkg('standard')" class="group flex justify-between items-center p-6 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all text-left">
+                            <div>
+                                <div class="text-xl font-medium mb-1 uppercase tracking-tight">Standard</div>
+                                <div class="text-sm text-gray-500 group-hover:text-gray-400 font-light">USD 80</div>
+                            </div>
+                            <div class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-white text-xl font-light">+</div>
+                        </button>
+
+                        <button onclick="addPkg('exclusive')" class="group flex justify-between items-center p-6 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all text-left">
+                            <div>
+                                <div class="text-xl font-medium mb-1 uppercase tracking-tight">Exclusive</div>
+                                <div class="text-sm text-gray-500 group-hover:text-gray-400 font-light">USD 110</div>
+                            </div>
+                            <div class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-white text-xl font-light">+</div>
+                        </button>
+
+                        <button onclick="addPkg('mega')" class="group flex justify-between items-center p-6 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all text-left">
+                            <div>
+                                <div class="text-xl font-medium mb-1 uppercase tracking-tight">Mega Units</div>
+                                <div class="text-sm text-gray-500 group-hover:text-gray-400 font-light">USD 130</div>
+                            </div>
+                            <div class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-white text-xl font-light">+</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-gray-50 border border-gray-200 p-8 h-full flex flex-col relative overflow-hidden">
+                        <div id="selloDescuento" class="absolute -top-4 -right-4 bg-green-500 text-white w-20 h-20 rounded-full flex items-center justify-center font-bold text-xl rotate-12 shadow-lg scale-0 transition-transform duration-300 z-10">
+                            30%
+                        </div>
+                        
+                        <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6 border-b border-gray-300 pb-4">Resumen de Inversión</h3>
+                        
+                        <div id="pkgList" class="flex-1 space-y-4 mb-6 text-sm text-gray-800">
+                            <div class="text-gray-400 italic font-light">Seleccioná unidades para armar el paquete.</div>
+                        </div>
+
+                        <div class="border-t border-gray-300 pt-6 space-y-3 mt-auto">
+                            <div class="flex justify-between text-gray-500 font-light">
+                                <span>Subtotal</span>
+                                <span id="pkgSub">USD 0</span>
+                            </div>
+                            <div id="pkgDescRow" class="flex justify-between text-green-600 font-medium hidden">
+                                <span>Bonificación (30% OFF)</span>
+                                <span id="pkgDesc">- USD 0</span>
+                            </div>
+                            <div class="flex justify-between text-3xl font-bold text-black mt-4 pt-4 border-t border-gray-300">
+                                <span>Total Neto</span>
+                                <span id="pkgTotal">USD 0</span>
+                            </div>
+                            <div id="pkgAhorroMsg" class="h-4 mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 / Entregables & Pago -->
+    <section class="px-6 border-b-2 border-black">
+        <div class="max-w-7xl mx-auto py-20 flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest">03 / Entregables & Pago</h2>
+            </div>
+            <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-medium mb-4">Modalidad de Pago</h3>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        Esquema 50/50. El 50% se abona en concepto de adelanto para confirmar el encargo y reservar la fecha presencial de medición. El 50% restante se cancela a contraentrega, al momento de enviar el material digital final.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-medium mb-4">Material Final</h3>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        Se entrega la planta de zonificación limpia y acotada en formato PDF (alta resolución), ideal para adjuntar en webs o dossieres de venta. También se provee el archivo original (DWG/CAD) para total disposición del equipo de marketing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 / Disponibilidad -->
+    <section class="px-6 border-b-2 border-black bg-gray-50">
+        <div class="max-w-7xl mx-auto py-20 flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest">04 / Disponibilidad</h2>
+            </div>
+            <div class="md:w-2/3">
+                <p class="text-gray-600 font-light mb-8">
+                    Horarios de relevamiento en sitio (visitas).
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                        <thead>
+                            <tr class="border-b-2 border-black text-xs uppercase tracking-widest text-gray-500">
+                                <th class="py-4 pr-4 font-semibold">Franja Horaria</th>
+                                <th class="py-4 px-2 font-semibold text-center w-[14%]">Lun</th>
+                                <th class="py-4 px-2 font-semibold text-center w-[14%]">Mar</th>
+                                <th class="py-4 px-2 font-semibold text-center w-[14%]">Mié</th>
+                                <th class="py-4 px-2 font-semibold text-center w-[14%]">Jue</th>
+                                <th class="py-4 px-2 font-semibold text-center w-[14%]">Vie</th>
+                                <th class="py-4 px-2 font-semibold text-center w-[14%]">Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-gray-200">
+                                <td class="py-4 pr-4 font-medium text-gray-900">09:00 - 12:00</td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-4 font-medium text-gray-900">12:00 - 17:00</td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 bg-gray-200 flex items-center justify-center text-xs font-medium text-gray-500">No Disp.</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 border border-black flex items-center justify-center text-xs font-medium bg-white">Disponible</div></td>
+                                <td class="p-2"><div class="w-full py-2 bg-gray-200 flex items-center justify-center text-xs font-medium text-gray-500">No Disp.</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 / Aviso Legal -->
+    <section class="px-6 border-b-2 border-black">
+        <div class="max-w-7xl mx-auto py-20 flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest">05 / Aviso Legal</h2>
+            </div>
+            <div class="md:w-2/3">
+                <details class="group border-t border-black cursor-pointer">
+                    <summary class="flex justify-between items-center text-xl md:text-2xl py-6 font-medium">
+                        <span>Validez de la documentación</span>
+                        <span class="text-gray-400 group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <div class="text-gray-600 font-light leading-relaxed pb-8">
+                        Es importante aclarar que este servicio tiene un fin <strong>estrictamente comercial y publicitario</strong>. Las medidas que relevo son precisas para entender el espacio, pero se consideran "aproximadas" y no poseen validez legal para trámites municipales, habilitaciones o consorcios. Mis honorarios reflejan esta quita arancelaria frente a un plano de replanteo ejecutivo firmado por el colegio.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 / Contacto Directo -->
+    <section id="contacto" class="px-6 py-20 bg-black text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center justify-between">
+            <div class="md:w-1/3 text-center md:text-left">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">06 / Contacto</h2>
+                <p class="text-3xl md:text-5xl font-medium tracking-tight">Agendemos la<br>primera visita.</p>
+            </div>
+            <div class="md:w-2/3 flex flex-col sm:flex-row gap-6 justify-end w-full">
+                <a href="mailto:agustinfabrizio28@gmail.com" class="flex items-center justify-center gap-4 bg-white text-black px-10 py-5 hover:bg-gray-200 transition-colors w-full sm:w-auto shadow-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span class="text-sm font-bold uppercase tracking-widest">Enviar Mail</span>
+                </a>
+                <a href="https://wa.me/5492364714924" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 border-2 border-white px-10 py-5 hover:bg-white hover:text-black transition-colors w-full sm:w-auto">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    <span class="text-sm font-bold uppercase tracking-widest">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Simple -->
+    <footer class="px-6 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 uppercase tracking-widest">
+            <p>&copy; 2026 Agustín Fabrizio.</p>
+            <p>Buenos Aires, Argentina</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interactividad -->
+    <script>
+        // 1. Lógica Calculadora Grandes Superficies
+        function calcularCotizacion() {
+            const inputElement = document.getElementById('inputM2');
+            const resultadoElement = document.getElementById('resultadoCotizacion');
+            const m2 = parseFloat(inputElement.value);
+
+            if (isNaN(m2) || m2 <= 0) {
+                resultadoElement.innerHTML = '';
+                resultadoElement.classList.remove('text-black', 'text-gray-500');
+                return;
+            }
+
+            if (m2 > 600) {
+                const excedente = m2 - 600;
+                // Base $130 + asintota de max $90 extra = Tope $220.
+                const total = 130 + 90 * (1 - Math.exp(-excedente / 400));
+                
+                resultadoElement.innerHTML = `USD ${total.toFixed(0)}`;
+                resultadoElement.classList.remove('text-gray-500');
+                resultadoElement.classList.add('text-black');
+            } else {
+                resultadoElement.innerHTML = '<span class="text-sm font-normal">Corresponde a la tabla superior.</span>';
+                resultadoElement.classList.remove('text-black');
+                resultadoElement.classList.add('text-gray-500');
+            }
+        }
+
+        // 2. Lógica Paquetes Personalizados (Bulk)
+        const precios = { studio: 50, standard: 80, exclusive: 110, mega: 130 };
+        const nombres = { studio: 'Studio', standard: 'Standard', exclusive: 'Exclusive', mega: 'Mega Units' };
+        let carrito = { studio: 0, standard: 0, exclusive: 0, mega: 0 };
+
+        function addPkg(tipo) {
+            carrito[tipo]++;
+            renderPkg();
+        }
+
+        function removePkg(tipo) {
+            if(carrito[tipo] > 0) {
+                carrito[tipo]--;
+                renderPkg();
+            }
+        }
+
+        function renderPkg() {
+            let totalItems = 0;
+            let subtotal = 0;
+            let html = '';
+            
+            for(let key in carrito) {
+                if(carrito[key] > 0) {
+                    totalItems += carrito[key];
+                    subtotal += carrito[key] * precios[key];
+                    html += `
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-medium tracking-tight"><strong>${carrito[key]}x</strong> ${nombres[key]}</span>
+                        <div class="flex items-center gap-4">
+                            <span class="text-gray-600">USD ${carrito[key] * precios[key]}</span>
+                            <button onclick="removePkg('${key}')" class="text-gray-300 hover:text-black text-xl transition-colors font-light" aria-label="Remover">×</button>
+                        </div>
+                    </div>`;
+                }
+            }
+            
+            if(totalItems === 0) {
+                html = '<div class="text-gray-400 italic font-light">Seleccioná unidades para armar el paquete.</div>';
+            }
+
+            let descuento = 0;
+            const sello = document.getElementById('selloDescuento');
+            const msgAhorro = document.getElementById('pkgAhorroMsg');
+            const descRow = document.getElementById('pkgDescRow');
+
+            if(totalItems >= 5) {
+                descuento = subtotal * 0.30;
+                sello.classList.remove('scale-0');
+                sello.classList.add('scale-100');
+                
+                descRow.classList.remove('hidden');
+                
+                msgAhorro.innerHTML = `¡Ahorraste USD ${descuento.toFixed(0)}!`;
+                msgAhorro.className = "text-xs text-green-600 font-bold uppercase tracking-widest text-right block h-4 mt-2";
+            } else {
+                sello.classList.add('scale-0');
+                sello.classList.remove('scale-100');
+                
+                descRow.classList.add('hidden');
+                
+                if(totalItems > 0) {
+                    let faltan = 5 - totalItems;
+                    msgAhorro.innerHTML = `Sumá ${faltan} unidades para 30% OFF`;
+                    msgAhorro.className = "text-xs text-gray-400 font-semibold uppercase tracking-widest text-right block h-4 mt-2";
+                } else {
+                    msgAhorro.innerHTML = '';
+                }
+            }
+
+            let total = subtotal - descuento;
+
+            document.getElementById('pkgList').innerHTML = html;
+            document.getElementById('pkgSub').innerText = `USD ${subtotal}`;
+            document.getElementById('pkgDesc').innerText = `- USD ${descuento.toFixed(0)}`;
+            document.getElementById('pkgTotal').innerText = `USD ${total.toFixed(0)}`;
+        }
+    </script>
+</body>
+</html>
