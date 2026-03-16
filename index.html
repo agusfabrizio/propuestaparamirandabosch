@@ -212,7 +212,7 @@
                             </div>
                             <div class="flex justify-between text-gray-600 font-light text-[11px] mb-1.5">
                                 <span>Tiempo de Trabajo Est.*</span>
-                                <span id="cartHsTotal" class="font-medium text-emerald-600">50 hs</span>
+                                <span id="cartHsTotal" class="font-bold text-emerald-600 transition-colors">50 hs</span>
                             </div>
                             <div class="flex justify-between items-center pt-3 border-t border-gray-200 mt-3">
                                 <span class="text-gray-600 font-light text-xs">Total</span>
@@ -225,9 +225,17 @@
                                 Solicitar Paquete
                             </button>
                         </div>
+                        
+                        <!-- Disclaimer de horas -->
                         <div class="mt-4 bg-white border border-gray-200 p-2.5 shadow-sm rounded-sm text-[9px] text-gray-700 font-medium leading-relaxed text-balance flex items-start gap-2">
                             <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span>* El tiempo expresado en horas (hs) es un valor aproximado estimado que contempla logística (viajes), el relevamiento in situ y la posterior digitalización de los planos en estudio.</span>
+                        </div>
+
+                        <!-- Advertencia de tope de horas (>120hs) -->
+                        <div id="hsWarning" class="hidden mt-3 bg-orange-50 border border-orange-200 p-2.5 shadow-sm rounded-sm text-[10px] text-orange-800 font-bold leading-relaxed text-balance flex items-start gap-2 transition-all">
+                            <svg class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            <span>Atención: Al superar las 120 hs estimadas de trabajo, los tiempos de entrega pueden verse afectados y extenderse aproximadamente 1 semana.</span>
                         </div>
                     </div>
                 </div>
@@ -363,9 +371,9 @@
         };
         
         const tiersInfo = {
-            1: { name: '0-300 m²', hsPerUnit: 5 },
-            2: { name: '301-600 m²', hsPerUnit: 6 },
-            3: { name: '601-1000 m²', hsPerUnit: 7 }
+            1: { name: '0-300 m²', hsPerUnit: 4 },
+            2: { name: '301-600 m²', hsPerUnit: 5 },
+            3: { name: '601-1000 m²', hsPerUnit: 6 }
         };
 
         let quantities = { 1: 10, 2: 0, 3: 0 };
@@ -492,7 +500,22 @@
 
             document.getElementById('cartList').innerHTML = cartHtml;
             document.getElementById('cartQtyTotal').innerText = globalQty;
-            document.getElementById('cartHsTotal').innerText = `${globalHs} hs`;
+            
+            const hsTotalEl = document.getElementById('cartHsTotal');
+            const hsWarning = document.getElementById('hsWarning');
+            hsTotalEl.innerText = `${globalHs} hs`;
+            
+            // Lógica para advertencia de horas
+            if (globalHs > 120) {
+                hsWarning.classList.remove('hidden');
+                hsTotalEl.classList.remove('text-emerald-600');
+                hsTotalEl.classList.add('text-orange-600');
+            } else {
+                hsWarning.classList.add('hidden');
+                hsTotalEl.classList.remove('text-orange-600');
+                hsTotalEl.classList.add('text-emerald-600');
+            }
+            
             document.getElementById('cartTotalSum').innerHTML = formatPrice(globalTotal, false);
             
             const btnSolicitar = document.getElementById('btnSolicitar');
