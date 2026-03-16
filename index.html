@@ -88,103 +88,106 @@
 
     <!-- 02 / Cotizador Flexible (Cuponeras) -->
     <section class="px-6 border-b-2 border-black bg-white">
-        <div class="max-w-7xl mx-auto py-12">
-            <h2 class="text-xs font-semibold uppercase tracking-widest mb-8 text-gray-400">02 / Cotizador de Volumen</h2>
+        <div class="max-w-7xl mx-auto py-6 md:py-8">
+            <h2 class="text-xs font-semibold uppercase tracking-widest mb-5 text-gray-400">02 / Cotizador de Volumen</h2>
             
             <!-- Sliders y Carrito -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
                 
                 <!-- 3 Cuponeras Independientes -->
-                <div class="lg:col-span-7 flex flex-col gap-6">
+                <div class="lg:col-span-7 flex flex-col gap-4">
                     
                     <!-- Cuponera 1 (Base) -->
-                    <div class="border border-gray-200 p-6 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">Hasta 300 m²</div>
+                            <div id="msg1" class="text-[9px] text-emerald-700 font-bold uppercase tracking-widest transition-opacity opacity-0 bg-emerald-50 px-1.5 py-0.5 rounded"></div>
                         </div>
 
-                        <div class="flex justify-between items-end mb-6 min-h-[70px]" id="pricingArea1">
+                        <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea1">
                             <!-- JS will inject here -->
                         </div>
 
-                        <div class="border-t border-gray-100 pt-5 pb-6 flex justify-between items-end">
+                        <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
                             <div class="flex flex-col">
-                                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Subtotal</span>
-                                <span class="text-3xl font-bold text-black leading-none" id="subTotal1">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
+                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
+                                <span class="text-2xl font-bold text-black leading-none" id="subTotal1">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
                             </div>
-                            <div class="text-xs text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-3 py-2 rounded border border-gray-200">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
+                                <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs1">0 hs</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-5 pt-2">
-                            <div class="flex items-center border border-gray-300 w-full sm:w-32 bg-gray-50 rounded-sm">
-                                <button onclick="updateQty(1, -1)" class="px-3 py-2 hover:bg-gray-200 text-xl font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty1" value="10" class="w-1/3 text-center focus:outline-none font-bold text-lg bg-transparent pointer-events-none" readonly>
-                                <button onclick="updateQty(1, 1)" class="px-3 py-2 hover:bg-gray-200 text-xl font-light w-1/3 border-l border-gray-300">+</button>
+                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
+                            <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
+                                <button onclick="updateQty(1, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                <input type="number" id="qty1" value="10" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent pointer-events-none" readonly>
+                                <button onclick="updateQty(1, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
                             </div>
                             <input type="range" id="slider1" min="0" max="30" step="1" value="10" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="setQty(1, this.value)">
                         </div>
                     </div>
 
                     <!-- Cuponera 2 (Intermedia) -->
-                    <div class="border border-gray-200 p-6 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 301 a 600 m²</div>
+                            <div id="msg2" class="text-[9px] text-emerald-700 font-bold uppercase tracking-widest transition-opacity opacity-0 bg-emerald-50 px-1.5 py-0.5 rounded"></div>
                         </div>
 
-                        <div class="flex justify-between items-end mb-6 min-h-[70px]" id="pricingArea2">
+                        <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea2">
                             <!-- JS will inject here -->
                         </div>
 
-                        <div class="border-t border-gray-100 pt-5 pb-6 flex justify-between items-end">
+                        <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
                             <div class="flex flex-col">
-                                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Subtotal</span>
-                                <span class="text-3xl font-bold text-black leading-none" id="subTotal2">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
+                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
+                                <span class="text-2xl font-bold text-black leading-none" id="subTotal2">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
                             </div>
-                            <div class="text-xs text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-3 py-2 rounded border border-gray-200">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
+                                <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs2">0 hs</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-5 pt-2">
-                            <div class="flex items-center border border-gray-300 w-full sm:w-32 bg-gray-50 rounded-sm">
-                                <button onclick="updateQty(2, -1)" class="px-3 py-2 hover:bg-gray-200 text-xl font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty2" value="0" class="w-1/3 text-center focus:outline-none font-bold text-lg bg-transparent pointer-events-none" readonly>
-                                <button onclick="updateQty(2, 1)" class="px-3 py-2 hover:bg-gray-200 text-xl font-light w-1/3 border-l border-gray-300">+</button>
+                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
+                            <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
+                                <button onclick="updateQty(2, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                <input type="number" id="qty2" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent pointer-events-none" readonly>
+                                <button onclick="updateQty(2, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
                             </div>
                             <input type="range" id="slider2" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="setQty(2, this.value)">
                         </div>
                     </div>
 
                     <!-- Cuponera 3 (Premium) -->
-                    <div class="border border-gray-200 p-6 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 601 a 1000 m²</div>
+                            <div id="msg3" class="text-[9px] text-emerald-700 font-bold uppercase tracking-widest transition-opacity opacity-0 bg-emerald-50 px-1.5 py-0.5 rounded"></div>
                         </div>
 
-                        <div class="flex justify-between items-end mb-6 min-h-[70px]" id="pricingArea3">
+                        <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea3">
                             <!-- JS will inject here -->
                         </div>
 
-                        <div class="border-t border-gray-100 pt-5 pb-6 flex justify-between items-end">
+                        <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
                             <div class="flex flex-col">
-                                <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Subtotal</span>
-                                <span class="text-3xl font-bold text-black leading-none" id="subTotal3">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
+                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
+                                <span class="text-2xl font-bold text-black leading-none" id="subTotal3">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
                             </div>
-                            <div class="text-xs text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-3 py-2 rounded border border-gray-200">
-                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
+                                <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs3">0 hs</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-5 pt-2">
-                            <div class="flex items-center border border-gray-300 w-full sm:w-32 bg-gray-50 rounded-sm">
-                                <button onclick="updateQty(3, -1)" class="px-3 py-2 hover:bg-gray-200 text-xl font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty3" value="0" class="w-1/3 text-center focus:outline-none font-bold text-lg bg-transparent pointer-events-none" readonly>
-                                <button onclick="updateQty(3, 1)" class="px-3 py-2 hover:bg-gray-200 text-xl font-light w-1/3 border-l border-gray-300">+</button>
+                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
+                            <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
+                                <button onclick="updateQty(3, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                <input type="number" id="qty3" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent pointer-events-none" readonly>
+                                <button onclick="updateQty(3, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
                             </div>
                             <input type="range" id="slider3" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="setQty(3, this.value)">
                         </div>
@@ -193,37 +196,37 @@
                 
                 <!-- Resumen Global (Carrito) -->
                 <div class="lg:col-span-5 relative mt-4 md:mt-0">
-                    <div class="bg-gray-50 border border-gray-200 p-6 md:p-8 h-full flex flex-col relative text-black sticky top-28 rounded-sm">
-                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-6 border-b border-gray-200 pb-3">Resumen Combinado</h3>
+                    <div class="bg-gray-50 border border-gray-200 p-5 h-full flex flex-col relative text-black sticky top-28 rounded-sm">
+                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-200 pb-2">Resumen Combinado</h3>
                         
                         <div class="flex-1">
-                            <div id="cartList" class="space-y-3">
+                            <div id="cartList" class="space-y-2">
                                 <!-- Se llena vía JS -->
                             </div>
                         </div>
 
-                        <div class="border-t border-gray-200 pt-6 mt-8 text-right">
-                            <div class="flex justify-between text-gray-600 font-light text-sm mb-2">
+                        <div class="border-t border-gray-200 pt-4 mt-6 text-right">
+                            <div class="flex justify-between text-gray-600 font-light text-[11px] mb-1.5">
                                 <span>Unidades Totales</span>
                                 <span id="cartQtyTotal" class="font-medium text-black">10</span>
                             </div>
-                            <div class="flex justify-between text-gray-600 font-light text-sm mb-2">
+                            <div class="flex justify-between text-gray-600 font-light text-[11px] mb-1.5">
                                 <span>Tiempo de Trabajo Est.*</span>
                                 <span id="cartHsTotal" class="font-medium text-emerald-600">50 hs</span>
                             </div>
-                            <div class="flex justify-between items-center pt-4 border-t border-gray-200 mt-4">
-                                <span class="text-gray-600 font-light">Total</span>
-                                <span id="cartTotalSum" class="text-4xl font-bold text-black tracking-tighter whitespace-nowrap">$750<span class="text-[0.5em] ml-1 font-bold tracking-normal text-black lowercase">mil</span></span>
+                            <div class="flex justify-between items-center pt-3 border-t border-gray-200 mt-3">
+                                <span class="text-gray-600 font-light text-xs">Total</span>
+                                <span id="cartTotalSum" class="text-3xl font-bold text-black tracking-tighter whitespace-nowrap">$750<span class="text-[0.5em] ml-1 font-bold tracking-normal text-black lowercase">mil</span></span>
                             </div>
                             
                             <!-- Botón Solicitar Paquete (WhatsApp CTA) -->
-                            <button onclick="solicitarPaquete()" id="btnSolicitar" class="w-full mt-6 bg-emerald-500 hover:bg-emerald-400 text-white font-bold uppercase tracking-widest text-[10px] sm:text-xs py-4 transition-colors flex justify-center items-center gap-2 rounded-sm shadow-lg">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            <button onclick="solicitarPaquete()" id="btnSolicitar" class="w-full mt-4 bg-emerald-500 hover:bg-emerald-400 text-white font-bold uppercase tracking-widest text-[10px] py-3 transition-colors flex justify-center items-center gap-2 rounded-sm shadow-md">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                                 Solicitar Paquete
                             </button>
                         </div>
-                        <div class="mt-6 bg-white border border-gray-200 p-4 shadow-sm rounded-sm text-xs text-gray-700 font-medium leading-relaxed text-balance flex items-start gap-3">
-                            <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div class="mt-4 bg-white border border-gray-200 p-2.5 shadow-sm rounded-sm text-[9px] text-gray-700 font-medium leading-relaxed text-balance flex items-start gap-2">
+                            <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span>* El tiempo expresado en horas (hs) es un valor aproximado estimado que contempla logística (viajes), el relevamiento in situ y la posterior digitalización de los planos en estudio.</span>
                         </div>
                     </div>
@@ -428,43 +431,43 @@
                 let discountBadge = '';
                 if (qty > 0 && currentUnitPrice < baseUnitPrice) {
                     let discount = Math.round((1 - (currentUnitPrice / baseUnitPrice)) * 100);
-                    discountBadge = `<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-2 py-1 rounded mt-2 inline-block self-end shadow-sm">🔥 ${discount}% OFF por volumen</span>`;
+                    discountBadge = `<span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-1.5 py-0.5 rounded shadow-sm inline-block">🔥 ${discount}% OFF</span>`;
                 }
 
                 if (qty === 0) {
                     pricingAreaEl.innerHTML = `
                         <div class="flex flex-col">
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">1 Unidad</span>
-                            <span class="text-xl font-medium text-gray-400">$${baseUnitPrice} mil</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
+                            <span class="text-lg font-medium text-gray-400">$${baseUnitPrice} mil</span>
                         </div>
                         <div class="flex flex-col text-right">
-                            <span class="text-[10px] uppercase tracking-widest text-emerald-600 font-bold mb-1">Ref. Pack 10 Un.</span>
-                            <span class="text-4xl font-bold text-emerald-600 leading-none">$${refPack10Price}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
+                            <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold mb-0.5">Ref. Pack 10 Un.</span>
+                            <span class="text-3xl font-bold text-emerald-600 leading-none">$${refPack10Price}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
                         </div>
                     `;
                 } else if (currentUnitPrice < baseUnitPrice) {
                     pricingAreaEl.innerHTML = `
                         <div class="flex flex-col">
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">1 Unidad</span>
-                            <span class="text-xl font-medium text-gray-400 line-through">$${baseUnitPrice} mil</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
+                            <span class="text-lg font-medium text-gray-400 line-through">$${baseUnitPrice} mil</span>
                         </div>
                         <div class="flex flex-col text-right">
-                            <span class="text-[10px] uppercase tracking-widest text-emerald-600 font-bold mb-1">Tu Precio (x${qty})</span>
-                            <div class="flex flex-col items-end">
-                                <span class="text-4xl font-bold text-emerald-600 leading-none">$${currentUnitPrice.toLocaleString('es-AR', {maximumFractionDigits:1})}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
+                            <div class="flex items-center justify-end gap-2 mb-0.5">
                                 ${discountBadge}
+                                <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold">Tu Precio (x${qty})</span>
                             </div>
+                            <span class="text-3xl font-bold text-emerald-600 leading-none">$${currentUnitPrice.toLocaleString('es-AR', {maximumFractionDigits:1})}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
                         </div>
                     `;
                 } else {
                     pricingAreaEl.innerHTML = `
                         <div class="flex flex-col">
-                            <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">1 Unidad</span>
-                            <span class="text-xl font-medium text-gray-400">$${baseUnitPrice} mil</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
+                            <span class="text-lg font-medium text-gray-400">$${baseUnitPrice} mil</span>
                         </div>
                         <div class="flex flex-col text-right">
-                            <span class="text-[10px] uppercase tracking-widest text-gray-800 font-bold mb-1">Tu Precio (x${qty})</span>
-                            <span class="text-4xl font-bold text-gray-800 leading-none">$${currentUnitPrice.toLocaleString('es-AR', {maximumFractionDigits:1})}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Tu Precio (x${qty})</span>
+                            <span class="text-3xl font-bold text-gray-800 leading-none">$${currentUnitPrice.toLocaleString('es-AR', {maximumFractionDigits:1})}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
                         </div>
                     `;
                 }
