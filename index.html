@@ -6,6 +6,8 @@
     <title>Agustín Fabrizio | Propuesta Miranda Bosch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Librería para generar PDF vectorial directo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body { 
             font-family: 'Inter', sans-serif; 
@@ -60,6 +62,7 @@
             <div class="text-left md:text-right">
                 <span class="block text-gray-400">Propuesta de Servicio</span>
                 <span class="block">Para: Miranda Bosch</span>
+                <span class="block text-[10px] text-gray-500 mt-1 font-normal tracking-wider">Actualizado 17/03/2026</span>
             </div>
         </div>
     </header>
@@ -91,6 +94,13 @@
         <div class="max-w-7xl mx-auto py-6 md:py-8">
             <h2 class="text-xs font-semibold uppercase tracking-widest mb-5 text-gray-400">02 / Cotizador de Volumen</h2>
             
+            <!-- Bloque Estratégico y Aclaración General -->
+            <div class="mb-8">
+                <p class="text-lg md:text-xl font-medium tracking-tight text-gray-800">
+                    <span class="text-emerald-600 font-bold">¡Ahorrá por cantidad!</span> Descubrí los descuentos automáticos sumando unidades a tu pedido.
+                </p>
+            </div>
+
             <!-- Sliders y Carrito -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
                 
@@ -101,7 +111,6 @@
                     <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
                         <div class="flex justify-between items-start mb-2">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">Hasta 300 m²</div>
-                            <div id="msg1" class="text-[9px] text-emerald-700 font-bold uppercase tracking-widest transition-opacity opacity-0 bg-emerald-50 px-1.5 py-0.5 rounded"></div>
                         </div>
 
                         <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea1">
@@ -111,7 +120,7 @@
                         <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
                             <div class="flex flex-col">
                                 <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal1">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
+                                <span class="text-2xl font-bold text-black leading-none" id="subTotal1">$0</span>
                             </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -122,10 +131,10 @@
                         <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
                             <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
                                 <button onclick="updateQty(1, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty1" value="10" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent pointer-events-none" readonly>
+                                <input type="number" id="qty1" value="10" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(1, this.value)" onblur="forceValidQty(1)">
                                 <button onclick="updateQty(1, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
                             </div>
-                            <input type="range" id="slider1" min="0" max="30" step="1" value="10" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="setQty(1, this.value)">
+                            <input type="range" id="slider1" min="0" max="30" step="1" value="10" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(1, this.value)">
                         </div>
                     </div>
 
@@ -133,7 +142,6 @@
                     <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
                         <div class="flex justify-between items-start mb-2">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 301 a 600 m²</div>
-                            <div id="msg2" class="text-[9px] text-emerald-700 font-bold uppercase tracking-widest transition-opacity opacity-0 bg-emerald-50 px-1.5 py-0.5 rounded"></div>
                         </div>
 
                         <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea2">
@@ -143,7 +151,7 @@
                         <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
                             <div class="flex flex-col">
                                 <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal2">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
+                                <span class="text-2xl font-bold text-black leading-none" id="subTotal2">$0</span>
                             </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -154,10 +162,10 @@
                         <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
                             <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
                                 <button onclick="updateQty(2, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty2" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent pointer-events-none" readonly>
+                                <input type="number" id="qty2" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(2, this.value)" onblur="forceValidQty(2)">
                                 <button onclick="updateQty(2, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
                             </div>
-                            <input type="range" id="slider2" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="setQty(2, this.value)">
+                            <input type="range" id="slider2" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(2, this.value)">
                         </div>
                     </div>
 
@@ -165,7 +173,6 @@
                     <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
                         <div class="flex justify-between items-start mb-2">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 601 a 1000 m²</div>
-                            <div id="msg3" class="text-[9px] text-emerald-700 font-bold uppercase tracking-widest transition-opacity opacity-0 bg-emerald-50 px-1.5 py-0.5 rounded"></div>
                         </div>
 
                         <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea3">
@@ -175,7 +182,7 @@
                         <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
                             <div class="flex flex-col">
                                 <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal3">$0<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span></span>
+                                <span class="text-2xl font-bold text-black leading-none" id="subTotal3">$0</span>
                             </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -186,10 +193,10 @@
                         <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
                             <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
                                 <button onclick="updateQty(3, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty3" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent pointer-events-none" readonly>
+                                <input type="number" id="qty3" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(3, this.value)" onblur="forceValidQty(3)">
                                 <button onclick="updateQty(3, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
                             </div>
-                            <input type="range" id="slider3" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="setQty(3, this.value)">
+                            <input type="range" id="slider3" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(3, this.value)">
                         </div>
                     </div>
                 </div>
@@ -214,27 +221,39 @@
                                 <span>Tiempo de Trabajo Est.*</span>
                                 <span id="cartHsTotal" class="font-bold text-emerald-600 transition-colors">50 hs</span>
                             </div>
-                            <div class="flex justify-between items-center pt-3 border-t border-gray-200 mt-3">
-                                <span class="text-gray-600 font-light text-xs">Total</span>
-                                <span id="cartTotalSum" class="text-3xl font-bold text-black tracking-tighter whitespace-nowrap">$750<span class="text-[0.5em] ml-1 font-bold tracking-normal text-black lowercase">mil</span></span>
+                            <div class="flex justify-between items-end pt-3 border-t border-gray-200 mt-3">
+                                <span class="text-gray-600 font-light text-xs mb-1">Total</span>
+                                <div class="flex flex-col items-end">
+                                    <span id="cartComboBadge" class="hidden text-xs bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-2 py-1 rounded shadow-sm mb-1.5"></span>
+                                    <span id="cartTotalSum" class="text-4xl font-bold text-black tracking-tighter whitespace-nowrap leading-none">$0</span>
+                                    <div id="cartSavingsContainer" class="hidden mt-1.5 text-emerald-600 font-bold text-sm tracking-tight">
+                                        Ahorro <span id="cartSavingsAmount">$0</span>
+                                    </div>
+                                </div>
                             </div>
                             
                             <!-- Botón Solicitar Paquete (WhatsApp CTA) -->
-                            <button onclick="solicitarPaquete()" id="btnSolicitar" class="w-full mt-4 bg-emerald-500 hover:bg-emerald-400 text-white font-bold uppercase tracking-widest text-[10px] py-3 transition-colors flex justify-center items-center gap-2 rounded-sm shadow-md">
+                            <button onclick="solicitarPaquete()" id="btnSolicitar" class="w-full mt-5 bg-emerald-500 hover:bg-emerald-400 text-white font-bold uppercase tracking-widest text-[10px] py-3 transition-colors flex justify-center items-center gap-2 rounded-sm shadow-md">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                                 Solicitar Paquete
+                            </button>
+
+                            <!-- Botón Descargar PDF -->
+                            <button id="btnPdf" onclick="generarPDF()" class="w-full mt-3 bg-white border-2 border-black hover:bg-gray-50 text-black font-bold uppercase tracking-widest text-[10px] py-3 transition-colors flex justify-center items-center gap-2 rounded-sm shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Descargar PDF
                             </button>
                         </div>
                         
                         <!-- Disclaimer de horas -->
-                        <div class="mt-4 bg-white border border-gray-200 p-2.5 shadow-sm rounded-sm text-[9px] text-gray-700 font-medium leading-relaxed text-balance flex items-start gap-2">
-                            <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div class="mt-5 bg-white border border-gray-200 p-4 shadow-sm rounded-sm text-xs text-gray-700 font-medium leading-relaxed text-balance flex items-start gap-3">
+                            <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span>* El tiempo expresado en horas (hs) es un valor aproximado estimado que contempla logística (viajes), el relevamiento in situ y la posterior digitalización de los planos en estudio.</span>
                         </div>
 
                         <!-- Advertencia de tope de horas (>120hs) -->
-                        <div id="hsWarning" class="hidden mt-3 bg-orange-50 border border-orange-200 p-2.5 shadow-sm rounded-sm text-[10px] text-orange-800 font-bold leading-relaxed text-balance flex items-start gap-2 transition-all">
-                            <svg class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <div id="hsWarning" class="hidden mt-3 bg-orange-50 border border-orange-200 p-4 shadow-sm rounded-sm text-xs text-orange-800 font-bold leading-relaxed text-balance flex items-start gap-3 transition-all">
+                            <svg class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                             <span>Atención: Al superar las 120 hs estimadas de trabajo, los tiempos de entrega pueden verse afectados y extenderse aproximadamente 1 semana.</span>
                         </div>
                     </div>
@@ -250,7 +269,7 @@
             <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8 text-balance text-center md:text-left">
                 <div>
                     <h3 class="text-lg font-bold mb-3 uppercase tracking-tighter">Liquidación Mensual</h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed">Se llevará un registro mensual detallado de los servicios realizados. En una fecha establecida de mutuo acuerdo, se realizará el pago por el total del volumen de trabajo acumulado en dicho período.</p>
+                    <p class="text-sm text-gray-600 font-light leading-relaxed">Se llevará un registro mensual detallado de los servicios realizados. En una fecha establecida de mutuo acuerdo, se realizará el pago por el total del volumen de trabajo acumulado en dicho período. Se establecerá a partir de un mutuo acuerdo aumentos trimestrales bajo un índice que beneficie a ambas partes.</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-3 uppercase tracking-tighter">Reserva de Turnos</h3>
@@ -346,30 +365,14 @@
     </footer>
 
     <script>
-        // Formateador inteligente para montos en UI: $X.XXX mil (si < 1000) o $X.XX M (si >= 1000)
-        function formatPrice(amountInThousands, isWhiteText = false) {
-            const colorClass = isWhiteText ? 'text-white' : 'text-black';
-            if (amountInThousands === 0) {
-                return `$0<span class="text-[0.5em] ml-1 font-bold tracking-normal lowercase ${colorClass}">mil</span>`;
-            }
-            if (amountInThousands >= 1000) {
-                const inMillions = amountInThousands / 1000;
-                const numFormatted = inMillions.toLocaleString('es-AR', {minimumFractionDigits: 0, maximumFractionDigits: 2});
-                return `$${numFormatted}<span class="ml-1 font-bold tracking-normal ${colorClass}">M</span>`;
-            } else {
-                const numFormatted = amountInThousands.toLocaleString('es-AR', {minimumFractionDigits: 0, maximumFractionDigits: 1});
-                return `$${numFormatted}<span class="text-[0.5em] ml-1 font-bold tracking-normal lowercase ${colorClass}">mil</span>`;
-            }
+        // Formateador exacto para montos completos (ej: $750.000)
+        function formatPrice(amountInThousands) {
+            if (amountInThousands === 0) return "$0";
+            return "$" + (amountInThousands * 1000).toLocaleString('es-AR', {minimumFractionDigits: 0, maximumFractionDigits: 0});
         }
 
-        // Lógica Matemática de Cuponeras
-        // Definimos los precios unitarios exactos según la cantidad solicitada.
-        const pricingBrackets = {
-            1: [ {min: 1, p: 90}, {min: 9, p: 75}, {min: 14, p: 65}, {min: 19, p: 60}, {min: 24, p: 50} ],
-            2: [ {min: 1, p: 100}, {min: 9, p: 83}, {min: 14, p: 72}, {min: 19, p: 66}, {min: 24, p: 55} ],
-            3: [ {min: 1, p: 110}, {min: 9, p: 90}, {min: 14, p: 78}, {min: 19, p: 72}, {min: 24, p: 60} ]
-        };
-        
+        // Lógica Matemática de Descuento Global
+        const basePrices = { 1: 90, 2: 100, 3: 110 };
         const tiersInfo = {
             1: { name: '0-300 m²', hsPerUnit: 4 },
             2: { name: '301-600 m²', hsPerUnit: 5 },
@@ -379,117 +382,140 @@
         let quantities = { 1: 10, 2: 0, 3: 0 };
 
         function updateQty(id, change) {
-            let val = parseInt(document.getElementById('qty' + id).value) + change;
-            setQty(id, val);
-        }
-
-        function setQty(id, val) {
+            let current = parseInt(document.getElementById('qty' + id).value);
+            if (isNaN(current)) current = 0;
+            let val = current + change;
             if (val < 0) val = 0;
             if (val > 30) val = 30;
-            quantities[id] = parseInt(val);
+            
             document.getElementById('qty' + id).value = val;
             document.getElementById('slider' + id).value = val;
+            quantities[id] = val;
             renderAll();
         }
 
-        function getRawTotal(id, qty) {
-            if (qty === 0) return 0;
-            let price = pricingBrackets[id][0].p;
-            for (let b of pricingBrackets[id]) {
-                if (qty >= b.min) price = b.p;
+        function updateFromInput(id, val) {
+            let num = parseInt(val);
+            if (isNaN(num) || num < 0) {
+                num = 0;
+            } else if (num > 30) {
+                num = 30;
+                document.getElementById('qty' + id).value = 30;
             }
-            return qty * price;
+            
+            document.getElementById('slider' + id).value = num;
+            quantities[id] = num;
+            renderAll();
         }
 
-        function calculateTierTotal(id, qty) {
-            if (qty === 0) return { total: 0, isCapped: false, cappedAt: 0, unitPrice: pricingBrackets[id][0].p };
-            
-            let currentPrice = pricingBrackets[id][0].p;
-            for (let b of pricingBrackets[id]) {
-                if (qty >= b.min) {
-                    currentPrice = b.p;
-                }
-            }
+        function updateFromSlider(id, val) {
+            let num = parseInt(val);
+            document.getElementById('qty' + id).value = num;
+            quantities[id] = num;
+            renderAll();
+        }
 
-            let total = qty * currentPrice;
-            return { total: total, isCapped: false, cappedAt: qty, unitPrice: currentPrice };
+        function forceValidQty(id) {
+            let el = document.getElementById('qty' + id);
+            if (el.value === '' || parseInt(el.value) < 0 || isNaN(parseInt(el.value))) {
+                el.value = 0;
+                updateFromInput(id, 0);
+            }
         }
 
         function renderAll() {
             let cartHtml = '';
             let globalTotal = 0;
+            let globalBaseTotal = 0;
             let globalQty = 0;
             let globalHs = 0;
 
             for (let id = 1; id <= 3; id++) {
+                globalQty += quantities[id];
+            }
+
+            let discountPercent = 0;
+            if (globalQty >= 30) discountPercent = 25;
+            else if (globalQty >= 25) discountPercent = 20;
+            else if (globalQty >= 20) discountPercent = 15;
+            else if (globalQty >= 15) discountPercent = 10;
+            else if (globalQty >= 10) discountPercent = 5;
+
+            let priceMultiplier = 1 - (discountPercent / 100);
+
+            for (let id = 1; id <= 3; id++) {
                 let qty = quantities[id];
                 let info = tiersInfo[id];
-                let result = calculateTierTotal(id, qty);
-                let currentHs = qty * info.hsPerUnit;
                 
-                document.getElementById('subTotal' + id).innerHTML = formatPrice(result.total, false);
+                let baseUnitPrice = basePrices[id];
+                let currentUnitPrice = baseUnitPrice * priceMultiplier;
+                let subTotal = qty * currentUnitPrice;
+
+                document.getElementById('subTotal' + id).innerHTML = formatPrice(subTotal);
+                
+                let currentHs = qty * info.hsPerUnit;
                 document.getElementById('hs' + id).innerText = `${currentHs} hs`;
                 
-                // Dynamic Pricing Area
-                let baseUnitPrice = pricingBrackets[id][0].p; 
-                let refPack10Price = pricingBrackets[id][1].p; // Precio de ref. para 10 unidades
-                let currentUnitPrice = result.unitPrice;
                 let pricingAreaEl = document.getElementById('pricingArea' + id);
-
                 let discountBadge = '';
-                if (qty > 0 && currentUnitPrice < baseUnitPrice) {
-                    let discount = Math.round((1 - (currentUnitPrice / baseUnitPrice)) * 100);
-                    discountBadge = `<span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-1.5 py-0.5 rounded shadow-sm inline-block">🔥 ${discount}% OFF</span>`;
+
+                if (discountPercent > 0 && qty > 0) {
+                    discountBadge = `<span class="text-xs bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-2 py-1 rounded shadow-sm inline-block">${discountPercent}% OFF</span>`;
                 }
 
-                if (qty === 0) {
+                let formattedBaseUnit = formatPrice(baseUnitPrice);
+                let formattedCurrentUnit = formatPrice(currentUnitPrice);
+
+                if (qty === 0 && globalQty === 0) {
                     pricingAreaEl.innerHTML = `
                         <div class="flex flex-col">
                             <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
-                            <span class="text-lg font-medium text-gray-400">$${baseUnitPrice} mil</span>
+                            <span class="text-lg font-medium text-gray-400">${formattedBaseUnit}</span>
                         </div>
-                        <div class="flex flex-col text-right">
-                            <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold mb-0.5">Ref. Pack 10 Un.</span>
-                            <span class="text-3xl font-bold text-emerald-600 leading-none">$${refPack10Price}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
+                        <div class="flex flex-col text-right opacity-50">
+                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Precio Unitario</span>
+                            <span class="text-3xl font-bold text-gray-800 leading-none">${formattedBaseUnit}</span>
                         </div>
                     `;
-                } else if (currentUnitPrice < baseUnitPrice) {
+                } else if (discountPercent > 0) {
                     pricingAreaEl.innerHTML = `
                         <div class="flex flex-col">
                             <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
-                            <span class="text-lg font-medium text-gray-400 line-through">$${baseUnitPrice} mil</span>
+                            <span class="text-lg font-medium text-gray-400 line-through">${formattedBaseUnit}</span>
                         </div>
                         <div class="flex flex-col text-right">
                             <div class="flex items-center justify-end gap-2 mb-0.5">
                                 ${discountBadge}
-                                <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold">Tu Precio (x${qty})</span>
+                                <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold">Tu Precio Unitario</span>
                             </div>
-                            <span class="text-3xl font-bold text-emerald-600 leading-none">$${currentUnitPrice.toLocaleString('es-AR', {maximumFractionDigits:1})}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
+                            <span class="text-3xl font-bold text-emerald-600 leading-none">${formattedCurrentUnit}</span>
                         </div>
                     `;
                 } else {
                     pricingAreaEl.innerHTML = `
                         <div class="flex flex-col">
                             <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
-                            <span class="text-lg font-medium text-gray-400">$${baseUnitPrice} mil</span>
+                            <span class="text-lg font-medium text-gray-400">${formattedBaseUnit}</span>
                         </div>
                         <div class="flex flex-col text-right">
-                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Tu Precio (x${qty})</span>
-                            <span class="text-3xl font-bold text-gray-800 leading-none">$${currentUnitPrice.toLocaleString('es-AR', {maximumFractionDigits:1})}<span class="text-[0.5em] ml-1 tracking-normal lowercase">mil</span>/u</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Tu Precio Unitario</span>
+                            <span class="text-3xl font-bold text-gray-800 leading-none">${formattedCurrentUnit}</span>
                         </div>
                     `;
                 }
 
                 if (qty > 0) {
-                    globalTotal += result.total;
-                    globalQty += qty;
+                    globalTotal += subTotal;
+                    globalBaseTotal += qty * baseUnitPrice;
                     globalHs += currentHs;
+                    
+                    // UI Cart
                     cartHtml += `
                     <div class="flex justify-between items-center text-sm mb-3">
                         <div>
                             <div class="font-bold text-black">${qty}x Relevamiento ${info.name}</div>
                         </div>
-                        <div class="font-medium text-gray-700">${formatPrice(result.total, false)}</div>
+                        <div class="font-medium text-gray-700">${formatPrice(subTotal)}</div>
                     </div>`;
                 }
             }
@@ -498,6 +524,7 @@
                 cartHtml = '<div class="text-gray-500 italic font-light">Agregá unidades en las cuponeras para armar el paquete.</div>';
             }
 
+            // Sync Main UI
             document.getElementById('cartList').innerHTML = cartHtml;
             document.getElementById('cartQtyTotal').innerText = globalQty;
             
@@ -505,7 +532,6 @@
             const hsWarning = document.getElementById('hsWarning');
             hsTotalEl.innerText = `${globalHs} hs`;
             
-            // Lógica para advertencia de horas
             if (globalHs > 120) {
                 hsWarning.classList.remove('hidden');
                 hsTotalEl.classList.remove('text-emerald-600');
@@ -516,37 +542,293 @@
                 hsTotalEl.classList.add('text-emerald-600');
             }
             
-            document.getElementById('cartTotalSum').innerHTML = formatPrice(globalTotal, false);
+            const cartComboBadge = document.getElementById('cartComboBadge');
+            const cartSavingsContainer = document.getElementById('cartSavingsContainer');
+            const cartSavingsAmount = document.getElementById('cartSavingsAmount');
+
+            if (discountPercent > 0) {
+                cartComboBadge.innerText = `${discountPercent}% OFF TOTAL APLICADO`;
+                cartComboBadge.classList.remove('hidden');
+                
+                let savings = globalBaseTotal - globalTotal;
+                cartSavingsAmount.innerText = formatPrice(savings);
+                cartSavingsContainer.classList.remove('hidden');
+            } else {
+                cartComboBadge.classList.add('hidden');
+                cartSavingsContainer.classList.add('hidden');
+            }
+            
+            document.getElementById('cartTotalSum').innerHTML = formatPrice(globalTotal);
             
             const btnSolicitar = document.getElementById('btnSolicitar');
+            const btnPdf = document.getElementById('btnPdf');
             if(globalQty > 0) {
                 btnSolicitar.classList.remove('opacity-50', 'pointer-events-none');
+                btnPdf.classList.remove('opacity-50', 'pointer-events-none');
             } else {
                 btnSolicitar.classList.add('opacity-50', 'pointer-events-none');
+                btnPdf.classList.add('opacity-50', 'pointer-events-none');
             }
         }
 
         function solicitarPaquete() {
-            let total = 0;
             let items = [];
+            let globalQty = 0;
+            let globalTotal = 0;
+            let globalBaseTotal = 0;
+
             for (let id = 1; id <= 3; id++) {
-                if (quantities[id] > 0) {
-                    items.push(`- ${quantities[id]}x Relevamiento ${tiersInfo[id].name}`);
-                    total += calculateTierTotal(id, quantities[id]).total;
+                globalQty += quantities[id];
+            }
+
+            let discountPercent = 0;
+            if (globalQty >= 30) discountPercent = 25;
+            else if (globalQty >= 25) discountPercent = 20;
+            else if (globalQty >= 20) discountPercent = 15;
+            else if (globalQty >= 15) discountPercent = 10;
+            else if (globalQty >= 10) discountPercent = 5;
+
+            let priceMultiplier = 1 - (discountPercent / 100);
+
+            for (let id = 1; id <= 3; id++) {
+                let qty = quantities[id];
+                if (qty > 0) {
+                    items.push(`- ${qty}x Relevamiento ${tiersInfo[id].name}`);
+                    globalBaseTotal += qty * basePrices[id];
+                    globalTotal += qty * (basePrices[id] * priceMultiplier);
                 }
             }
 
             if (items.length === 0) return;
 
-            let totalFormat = "$" + (total * 1000).toLocaleString('es-AR');
+            let totalFormat = formatPrice(globalTotal);
 
             let text = `Hola Agustín, quisiera solicitar un servicio mensual con el siguiente paquete:\n\n`;
             text += items.join("\n") + "\n\n";
+            if (discountPercent > 0) {
+                let savingsFormat = formatPrice(globalBaseTotal - globalTotal);
+                text += `*${discountPercent}% de Descuento Aplicado (Ahorro: ${savingsFormat})*\n`;
+            }
             text += `*Presupuesto Total estimado:*\n${totalFormat}\n\n`;
             text += `Espero tu respuesta para organizar los turnos.`;
 
             const url = `https://wa.me/5492364714924?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
+        }
+
+        function generarPDF() {
+            const btn = document.getElementById('btnPdf');
+            
+            // Estado de carga en el botón
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = `<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Generando...`;
+            btn.classList.add('opacity-50', 'pointer-events-none');
+
+            // Le damos un respiro al navegador para mostrar la carga antes de bloquear el hilo con jsPDF
+            setTimeout(() => {
+                try {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+
+                    const marginX = 20;
+                    let startY = 25;
+                    const pageWidth = doc.internal.pageSize.width;
+                    const contentWidth = pageWidth - marginX * 2;
+
+                    // --- HEADER ---
+                    doc.setFont("helvetica", "bold");
+                    doc.setFontSize(22);
+                    doc.setTextColor(0, 0, 0);
+                    doc.text("AGUSTÍN FABRIZIO", marginX, startY);
+
+                    doc.setFont("helvetica", "normal");
+                    doc.setFontSize(10);
+                    doc.setTextColor(100, 100, 100);
+                    doc.text("PRESUPUESTO", marginX, startY + 6);
+
+                    // Header Derecho
+                    const today = new Date().toLocaleDateString('es-AR');
+                    doc.setFont("helvetica", "bold");
+                    doc.text("PARA: MIRANDA BOSCH", pageWidth - marginX, startY, { align: "right" });
+                    doc.text("FECHA: " + today, pageWidth - marginX, startY + 6, { align: "right" });
+
+                    // Línea separadora
+                    startY += 12;
+                    doc.setDrawColor(0, 0, 0);
+                    doc.setLineWidth(0.5);
+                    doc.line(marginX, startY, pageWidth - marginX, startY);
+
+                    // --- RESUMEN COMBINADO ---
+                    startY += 15;
+                    doc.setFont("helvetica", "bold");
+                    doc.setFontSize(10);
+                    doc.setTextColor(100, 100, 100);
+                    doc.text("RESUMEN COMBINADO", marginX, startY);
+
+                    // Línea sutil
+                    startY += 4;
+                    doc.setDrawColor(220, 220, 220);
+                    doc.setLineWidth(0.2);
+                    doc.line(marginX, startY, pageWidth - marginX, startY);
+
+                    // --- ITEMS ---
+                    startY += 12;
+
+                    let globalTotal = 0;
+                    let globalBaseTotal = 0;
+                    let globalQty = 0;
+                    let globalHs = 0;
+
+                    for (let id = 1; id <= 3; id++) {
+                        globalQty += quantities[id];
+                    }
+
+                    let discountPercent = 0;
+                    if (globalQty >= 30) discountPercent = 25;
+                    else if (globalQty >= 25) discountPercent = 20;
+                    else if (globalQty >= 20) discountPercent = 15;
+                    else if (globalQty >= 15) discountPercent = 10;
+                    else if (globalQty >= 10) discountPercent = 5;
+
+                    let priceMultiplier = 1 - (discountPercent / 100);
+
+                    for (let id = 1; id <= 3; id++) {
+                        let qty = quantities[id];
+                        if (qty > 0) {
+                            let basePrice = basePrices[id];
+                            let itemTotal = qty * basePrice;
+                            globalBaseTotal += itemTotal;
+                            let itemTotalDiscounted = itemTotal * priceMultiplier;
+                            globalTotal += itemTotalDiscounted;
+                            globalHs += qty * tiersInfo[id].hsPerUnit;
+
+                            doc.setFont("helvetica", "bold");
+                            doc.setFontSize(11);
+                            doc.setTextColor(0, 0, 0);
+                            doc.text(`${qty}x Relevamiento ${tiersInfo[id].name}`, marginX, startY);
+
+                            doc.setFont("helvetica", "normal");
+                            doc.setTextColor(50, 50, 50);
+                            doc.text(formatPrice(itemTotal), pageWidth - marginX, startY, { align: "right" });
+
+                            startY += 10;
+                        }
+                    }
+
+                    // --- TOTALES ---
+                    startY += 5;
+                    doc.setDrawColor(220, 220, 220);
+                    doc.line(marginX, startY, pageWidth - marginX, startY);
+                    startY += 10;
+
+                    // Horas
+                    doc.setFont("helvetica", "normal");
+                    doc.setFontSize(10);
+                    doc.setTextColor(100, 100, 100);
+                    doc.text("Tiempo de Trabajo Est.*", marginX, startY);
+
+                    doc.setFont("helvetica", "bold");
+                    if (globalHs > 120) {
+                        doc.setTextColor(234, 88, 12); // Naranja
+                    } else {
+                        doc.setTextColor(5, 150, 105); // Verde
+                    }
+                    doc.text(`${globalHs} hs`, pageWidth - marginX, startY, { align: "right" });
+                    startY += 8;
+
+                    if (discountPercent > 0) {
+                        doc.setFont("helvetica", "normal");
+                        doc.setTextColor(100, 100, 100);
+                        doc.text("Subtotal", marginX, startY);
+                        doc.setFont("helvetica", "bold");
+                        doc.setTextColor(0, 0, 0);
+                        doc.text(formatPrice(globalBaseTotal), pageWidth - marginX, startY, { align: "right" });
+                        startY += 8;
+
+                        doc.setFont("helvetica", "bold");
+                        doc.setTextColor(5, 150, 105);
+                        doc.text(`Descuento ${discountPercent}% OFF`, marginX, startY);
+                        doc.text(`- ${formatPrice(globalBaseTotal - globalTotal)}`, pageWidth - marginX, startY, { align: "right" });
+                        startY += 8;
+                    }
+
+                    // TOTAL
+                    startY += 5;
+                    doc.setFont("helvetica", "bold");
+                    doc.setFontSize(16);
+                    doc.setTextColor(0, 0, 0);
+                    doc.text("Total", marginX, startY);
+                    doc.setFontSize(22);
+                    doc.text(formatPrice(globalTotal), pageWidth - marginX, startY, { align: "right" });
+
+                    // --- DISCLAIMERS ---
+                    startY += 20;
+                    doc.setFont("helvetica", "normal");
+                    doc.setFontSize(9);
+                    doc.setTextColor(100, 100, 100);
+                    let disclaimerText = "* El tiempo expresado en horas (hs) es un valor aproximado estimado que contempla logística (viajes), el relevamiento in situ y la posterior digitalización de los planos en estudio.";
+                    let splitDisclaimer = doc.splitTextToSize(disclaimerText, contentWidth);
+                    doc.text(splitDisclaimer, marginX, startY);
+                    startY += (splitDisclaimer.length * 5) + 5;
+
+                    if (globalHs > 120) {
+                        doc.setFont("helvetica", "bold");
+                        doc.setTextColor(234, 88, 12);
+                        let warningText = "Atención: Al superar las 120 hs estimadas de trabajo, los tiempos de entrega pueden verse afectados y extenderse aproximadamente 1 semana.";
+                        let splitWarning = doc.splitTextToSize(warningText, contentWidth);
+                        doc.text(splitWarning, marginX, startY);
+                        startY += (splitWarning.length * 5) + 5;
+                    }
+
+                    // --- LEGAL ---
+                    startY = Math.max(startY + 15, 200);
+
+                    doc.setDrawColor(200, 200, 200);
+                    doc.setLineWidth(0.5);
+                    doc.line(marginX, startY, pageWidth - marginX, startY);
+                    startY += 10;
+
+                    doc.setFontSize(8);
+
+                    doc.setFont("helvetica", "bold");
+                    doc.setTextColor(0, 0, 0);
+                    doc.text("VALIDEZ DE LA DOCUMENTACIÓN", marginX, startY);
+                    doc.setFont("helvetica", "normal");
+                    doc.setTextColor(100, 100, 100);
+                    let text1 = "Los planos entregados tienen un fin estrictamente comercial y publicitario. Las medidas relevadas son precisas para la correcta comprensión espacial del inmueble, pero revisten carácter orientativo. Carecen de validez legal para trámites municipales, habilitaciones, consorcios o ejecuciones de obra.";
+                    let split1 = doc.splitTextToSize(text1, contentWidth);
+                    doc.text(split1, marginX, startY + 4);
+                    startY += (split1.length * 4) + 6;
+
+                    doc.setFont("helvetica", "bold");
+                    doc.setTextColor(0, 0, 0);
+                    doc.text("LIQUIDACIÓN MENSUAL", marginX, startY);
+                    doc.setFont("helvetica", "normal");
+                    doc.setTextColor(100, 100, 100);
+                    let text2 = "Se llevará un registro mensual detallado de los servicios realizados. En una fecha establecida de mutuo acuerdo, se realizará el pago por el total del volumen de trabajo acumulado en dicho período. Se establecerá a partir de un mutuo acuerdo aumentos trimestrales bajo un índice que beneficie a ambas partes.";
+                    let split2 = doc.splitTextToSize(text2, contentWidth);
+                    doc.text(split2, marginX, startY + 4);
+                    startY += (split2.length * 4) + 6;
+
+                    doc.setFont("helvetica", "bold");
+                    doc.setTextColor(0, 0, 0);
+                    doc.text("RESERVA DE TURNOS", marginX, startY);
+                    doc.setFont("helvetica", "normal");
+                    doc.setTextColor(100, 100, 100);
+                    let text3 = "Para asegurar el buen funcionamiento, cumplimiento de plazos y correcta organización de la agenda, toda solicitud de relevamiento deberá realizarse con un mínimo de 24 horas de antelación.";
+                    let split3 = doc.splitTextToSize(text3, contentWidth);
+                    doc.text(split3, marginX, startY + 4);
+
+                    // Guardar
+                    doc.save("Presupuesto_Miranda_Bosch.pdf");
+                } catch (e) {
+                    console.error("Error generando PDF", e);
+                    alert("Hubo un error al generar el PDF. Por favor, intentá nuevamente.");
+                } finally {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('opacity-50', 'pointer-events-none');
+                }
+            }, 100);
         }
 
         window.onload = function() {
