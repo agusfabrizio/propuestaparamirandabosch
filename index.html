@@ -62,39 +62,15 @@
             <div class="text-left md:text-right">
                 <span class="block text-gray-400">Propuesta de Servicio</span>
                 <span class="block">Para: Miranda Bosch</span>
-                <span class="block text-[10px] text-gray-500 mt-1 font-normal tracking-wider">Actualizado 18/03/2026</span>
+                <span class="block text-[10px] text-gray-500 mt-1 font-normal tracking-wider">Actualizado 01/04/2026</span>
             </div>
         </div>
     </header>
 
-    <!-- Hero Header visual -->
-    <section class="pt-32 pb-8 px-6 border-b-2 border-black bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <p class="text-2xl md:text-4xl font-medium leading-tight tracking-tight text-balance max-w-4xl">
-                Documentación gráfica y precisa para relevamiento del inventario inmobiliario.
-            </p>
-        </div>
-    </section>
-
-    <!-- 01 / Mi Experiencia -->
-    <section class="px-6 border-b-2 border-black py-12">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400">01 / Mi Experiencia</h2>
-            </div>
-            <div class="md:w-2/3 text-sm md:text-base text-gray-700 space-y-4 font-light leading-relaxed text-balance">
-                <p>Hola. Soy Agustín, estudiante avanzado de Arquitectura (FADU, UBA).</p>
-                <p>Vengo de una familia de carpinteros a medida. Llevo años realizando relevamientos para la empresa familiar, donde aprendí de primera mano que un centímetro de diferencia cambia todo y desarrollé un cuidado absoluto por el detalle en los interiores.</p>
-                <p>A nivel profesional, cuento con experiencia trabajando para <a href="https://picast.world/proyectos/" target="_blank" rel="noopener noreferrer" class="font-medium text-black underline underline-offset-4 hover:text-gray-500 transition-colors">Picast Astori</a>. Una de mis obras destacadas en relevamiento fue la torre <strong>L'Avenue Libertador</strong>, diseñada por el estudio <strong>Zaha Hadid Architects</strong>.</p>
-                <p>Tengo experiencia avanzada en el uso de herramientas digitales (CAD, 3D, Renderizado) y cuento con elementos de medición propios, lo que me permite tener disponibilidad inmediata para abarcar nuevas propiedades con total autonomía.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 02 / Cotizador Flexible (Cuponeras) -->
-    <section class="px-6 border-b-2 border-black bg-white">
+    <!-- 01 / Cotizador -->
+    <section class="px-6 border-b-2 border-black bg-white pt-32">
         <div class="max-w-7xl mx-auto py-6 md:py-8">
-            <h2 class="text-xs font-semibold uppercase tracking-widest mb-5 text-gray-400">02 / Cotizador de Volumen</h2>
+            <h2 class="text-xs font-semibold uppercase tracking-widest mb-5 text-gray-400">01 / Cotizador</h2>
             
             <!-- Bloque Estratégico y Aclaración General -->
             <div class="mb-8">
@@ -110,146 +86,202 @@
                 <div class="lg:col-span-7 flex flex-col gap-4">
                     
                     <!-- Cuponera 1 (0 a 100m2) -->
-                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-2">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm rounded-sm">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 0 a 100 m²</div>
-                        </div>
-
-                        <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea1">
-                            <!-- JS will inject here -->
-                        </div>
-
-                        <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
-                            <div class="flex flex-col">
-                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal1">$0</span>
-                            </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs1">0 hs</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
-                            <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
-                                <button onclick="updateQty(1, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty1" value="10" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(1, this.value)" onblur="forceValidQty(1)">
-                                <button onclick="updateQty(1, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                        <!-- Header Area: Precios base y Subtotal -->
+                        <div class="flex justify-between items-end mb-5 min-h-[40px]" id="headerArea1">
+                            <!-- JS will inject here -->
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <!-- Poco Compartimentado -->
+                            <div class="border border-gray-300 p-3 bg-gray-50 rounded-sm">
+                                <span class="text-[10px] uppercase font-bold text-gray-500 mb-2 block">Poco Compartimentado</span>
+                                <div class="flex flex-col sm:flex-row items-center gap-4">
+                                    <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-white rounded-sm">
+                                        <button onclick="updateQty(1, 'base', -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                        <input type="number" id="qtyBase1" value="0" max="15" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(1, 'base', this.value)" onblur="forceValidQty(1, 'base')">
+                                        <button onclick="updateQty(1, 'base', 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                                    </div>
+                                    <input type="range" id="sliderBase1" min="0" max="15" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(1, 'base', this.value)">
+                                </div>
                             </div>
-                            <input type="range" id="slider1" min="0" max="30" step="1" value="10" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(1, this.value)">
+                            
+                            <!-- Info Precio Comp -->
+                            <div class="px-1" id="compPriceArea1">
+                                <!-- JS will inject here -->
+                            </div>
+
+                            <!-- Compartimentado -->
+                            <div class="border border-gray-300 p-3 bg-gray-50 rounded-sm">
+                                <span class="text-[10px] uppercase font-bold text-gray-500 mb-2 block">Muy Compartimentado (+30%)</span>
+                                <div class="flex flex-col sm:flex-row items-center gap-4">
+                                    <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-white rounded-sm">
+                                        <button onclick="updateQty(1, 'comp', -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                        <input type="number" id="qtyComp1" value="0" max="15" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(1, 'comp', this.value)" onblur="forceValidQty(1, 'comp')">
+                                        <button onclick="updateQty(1, 'comp', 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                                    </div>
+                                    <input type="range" id="sliderComp1" min="0" max="15" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(1, 'comp', this.value)">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Cuponera 2 (101 a 200m2) -->
-                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-2">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm rounded-sm">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 101 a 200 m²</div>
-                        </div>
-
-                        <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea2">
-                            <!-- JS will inject here -->
-                        </div>
-
-                        <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
-                            <div class="flex flex-col">
-                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal2">$0</span>
-                            </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs2">0 hs</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
-                            <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
-                                <button onclick="updateQty(2, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty2" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(2, this.value)" onblur="forceValidQty(2)">
-                                <button onclick="updateQty(2, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                        <!-- Header Area: Precios base y Subtotal -->
+                        <div class="flex justify-between items-end mb-5 min-h-[40px]" id="headerArea2">
+                            <!-- JS will inject here -->
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <!-- Poco Compartimentado -->
+                            <div class="border border-gray-300 p-3 bg-gray-50 rounded-sm">
+                                <span class="text-[10px] uppercase font-bold text-gray-500 mb-2 block">Poco Compartimentado</span>
+                                <div class="flex flex-col sm:flex-row items-center gap-4">
+                                    <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-white rounded-sm">
+                                        <button onclick="updateQty(2, 'base', -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                        <input type="number" id="qtyBase2" value="0" max="15" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(2, 'base', this.value)" onblur="forceValidQty(2, 'base')">
+                                        <button onclick="updateQty(2, 'base', 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                                    </div>
+                                    <input type="range" id="sliderBase2" min="0" max="15" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(2, 'base', this.value)">
+                                </div>
                             </div>
-                            <input type="range" id="slider2" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(2, this.value)">
+                            
+                            <!-- Info Precio Comp -->
+                            <div class="px-1" id="compPriceArea2">
+                                <!-- JS will inject here -->
+                            </div>
+
+                            <!-- Compartimentado -->
+                            <div class="border border-gray-300 p-3 bg-gray-50 rounded-sm">
+                                <span class="text-[10px] uppercase font-bold text-gray-500 mb-2 block">Muy Compartimentado (+30%)</span>
+                                <div class="flex flex-col sm:flex-row items-center gap-4">
+                                    <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-white rounded-sm">
+                                        <button onclick="updateQty(2, 'comp', -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                        <input type="number" id="qtyComp2" value="0" max="15" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(2, 'comp', this.value)" onblur="forceValidQty(2, 'comp')">
+                                        <button onclick="updateQty(2, 'comp', 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                                    </div>
+                                    <input type="range" id="sliderComp2" min="0" max="15" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(2, 'comp', this.value)">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Cuponera 3 (201 a 300m2) -->
-                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-2">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm rounded-sm">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">De 201 a 300 m²</div>
-                        </div>
-
-                        <div class="flex justify-between items-end mb-3 min-h-[50px]" id="pricingArea3">
-                            <!-- JS will inject here -->
-                        </div>
-
-                        <div class="border-t border-gray-100 pt-3 pb-3 flex justify-between items-end">
-                            <div class="flex flex-col">
-                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal3">$0</span>
-                            </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs3">0 hs</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center gap-4 pt-1">
-                            <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-gray-50 rounded-sm">
-                                <button onclick="updateQty(3, -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
-                                <input type="number" id="qty3" value="0" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(3, this.value)" onblur="forceValidQty(3)">
-                                <button onclick="updateQty(3, 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                        <!-- Header Area: Precios base y Subtotal -->
+                        <div class="flex justify-between items-end mb-5 min-h-[40px]" id="headerArea3">
+                            <!-- JS will inject here -->
+                        </div>
+
+                        <div class="flex flex-col gap-3">
+                            <!-- Poco Compartimentado -->
+                            <div class="border border-gray-300 p-3 bg-gray-50 rounded-sm">
+                                <span class="text-[10px] uppercase font-bold text-gray-500 mb-2 block">Poco Compartimentado</span>
+                                <div class="flex flex-col sm:flex-row items-center gap-4">
+                                    <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-white rounded-sm">
+                                        <button onclick="updateQty(3, 'base', -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                        <input type="number" id="qtyBase3" value="0" max="15" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(3, 'base', this.value)" onblur="forceValidQty(3, 'base')">
+                                        <button onclick="updateQty(3, 'base', 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                                    </div>
+                                    <input type="range" id="sliderBase3" min="0" max="15" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(3, 'base', this.value)">
+                                </div>
                             </div>
-                            <input type="range" id="slider3" min="0" max="30" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(3, this.value)">
+                            
+                            <!-- Info Precio Comp -->
+                            <div class="px-1" id="compPriceArea3">
+                                <!-- JS will inject here -->
+                            </div>
+
+                            <!-- Compartimentado -->
+                            <div class="border border-gray-300 p-3 bg-gray-50 rounded-sm">
+                                <span class="text-[10px] uppercase font-bold text-gray-500 mb-2 block">Muy Compartimentado (+30%)</span>
+                                <div class="flex flex-col sm:flex-row items-center gap-4">
+                                    <div class="flex items-center border border-gray-300 w-full sm:w-28 bg-white rounded-sm">
+                                        <button onclick="updateQty(3, 'comp', -1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-r border-gray-300">-</button>
+                                        <input type="number" id="qtyComp3" value="0" max="15" class="w-1/3 text-center focus:outline-none font-bold text-base bg-transparent" oninput="updateFromInput(3, 'comp', this.value)" onblur="forceValidQty(3, 'comp')">
+                                        <button onclick="updateQty(3, 'comp', 1)" class="px-2 py-1 hover:bg-gray-200 text-lg font-light w-1/3 border-l border-gray-300">+</button>
+                                    </div>
+                                    <input type="range" id="sliderComp3" min="0" max="15" step="1" value="0" class="w-full flex-1 cursor-pointer mt-2 sm:mt-0" oninput="updateFromSlider(3, 'comp', this.value)">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Cuponera 4 (+300m2 PERSONALIZABLE POR RANGOS) -->
-                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm">
-                        <div class="flex justify-between items-start mb-2">
+                    <div class="border border-gray-200 p-4 lg:p-5 bg-white flex flex-col shadow-sm rounded-sm">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="text-sm font-bold uppercase tracking-widest text-gray-800">Más de 300 m² <span class="text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded ml-2">Por Rango</span></div>
-                        </div>
-
-                        <div class="flex justify-between items-end mb-3 min-h-[30px]" id="pricingArea4">
-                            <!-- JS will inject here -->
-                        </div>
-
-                        <div class="flex flex-col gap-3 mt-2 mb-5">
-                            <div class="text-xs text-gray-500 font-medium leading-relaxed">
-                                Seleccioná el rango de m² para agregar unidades de gran tamaño.
-                                <span class="block mt-1.5 text-[10px] italic text-gray-400">* Nota: Las propiedades de gran escala, al estar más compartimentadas y poseer más detalles, requieren tiempos de relevamiento y digitalización proporcionalmente mayores.</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <div class="relative w-full">
-                                    <select id="customRangeSelect" class="appearance-none border border-gray-300 px-3 py-2 w-full text-sm font-bold focus:outline-none focus:border-black rounded-sm bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors text-gray-800">
-                                        <option value="0">De 301 a 400 m² — $80.000</option>
-                                        <option value="1">De 401 a 500 m² — $95.000</option>
-                                        <option value="2">De 501 a 600 m² — $110.000</option>
-                                        <option value="3">De 601 a 700 m² — $125.000</option>
-                                        <option value="4">De 701 a 800 m² — $140.000</option>
-                                        <option value="5">De 801 a 900 m² — $155.000</option>
-                                        <option value="6">De 901 a 1000 m² — $170.000</option>
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
-                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                    </div>
-                                </div>
-                                <button onclick="addCustomItem()" class="bg-black text-white px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-gray-800 transition-colors">Agregar</button>
-                            </div>
-                            
-                            <!-- Lista de items agregados -->
-                            <ul id="customItemsList" class="space-y-2 mt-2">
-                                <!-- Se inyecta vía JS -->
-                            </ul>
-                        </div>
-
-                        <div class="border-t border-gray-100 pt-3 pb-1 flex justify-between items-end mt-auto">
-                            <div class="flex flex-col">
-                                <span class="text-[9px] uppercase tracking-widest text-gray-500 mb-0.5">Subtotal (+300 m²)</span>
-                                <span class="text-2xl font-bold text-black leading-none" id="subTotal4">$0</span>
-                            </div>
                             <div class="text-[10px] text-gray-800 font-bold flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded border border-gray-200">
                                 <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span id="hs4">0 hs</span>
                             </div>
+                        </div>
+
+                        <!-- Header Area: Info y Subtotal -->
+                        <div class="flex justify-between items-end mb-4 min-h-[40px]" id="headerArea4">
+                            <!-- JS will inject here -->
+                        </div>
+
+                        <div class="flex flex-col gap-3 mt-2 border-t border-gray-100 pt-5">
+                            <div class="text-xs text-gray-500 font-medium leading-relaxed mb-2">
+                                Seleccioná el rango de m² para agregar unidades de gran tamaño.
+                                <span class="block mt-1.5 text-[10px] italic text-gray-400">* Nota: Las propiedades de gran escala requieren tiempos proporcionales.</span>
+                            </div>
+                            
+                            <div class="flex flex-col gap-2">
+                                <div class="flex gap-2">
+                                    <div class="relative w-full">
+                                        <select id="customRangeSelect" class="appearance-none border border-gray-300 px-3 py-2 w-full text-sm font-bold focus:outline-none focus:border-black rounded-sm bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors text-gray-800">
+                                            <option value="0">De 301 a 400 m² — $80.000</option>
+                                            <option value="1">De 401 a 500 m² — $95.000</option>
+                                            <option value="2">De 501 a 600 m² — $110.000</option>
+                                            <option value="3">De 601 a 700 m² — $125.000</option>
+                                            <option value="4">De 701 a 800 m² — $140.000</option>
+                                            <option value="5">De 801 a 900 m² — $155.000</option>
+                                            <option value="6">De 901 a 1000 m² — $170.000</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                        </div>
+                                    </div>
+                                    <button onclick="addCustomItem()" class="bg-black text-white px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-gray-800 transition-colors">Agregar</button>
+                                </div>
+                                <!-- Checkbox Muy Compartimentado para Custom -->
+                                <label class="flex items-center gap-2 cursor-pointer group w-full p-2.5 bg-gray-50 border border-gray-300 rounded-sm hover:bg-gray-100 transition-colors mt-1">
+                                    <input type="checkbox" id="compCustom" class="w-4 h-4 accent-black cursor-pointer">
+                                    <span class="text-[11px] uppercase tracking-wider text-gray-600 font-bold group-hover:text-black">Esta unidad es Muy compartimentada (+30%)</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Lista de items agregados -->
+                            <ul id="customItemsList" class="space-y-2 mt-4">
+                                <!-- Se inyecta vía JS -->
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -315,10 +347,10 @@
         </div>
     </section>
 
-    <!-- 03 / Modalidad de Trabajo -->
+    <!-- 02 / Modalidad de Trabajo -->
     <section class="px-6 border-b-2 border-black bg-gray-50">
         <div class="max-w-7xl mx-auto py-12 flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3 text-xs font-bold uppercase tracking-widest text-gray-400">03 / Modalidad de Trabajo</div>
+            <div class="md:w-1/3 text-xs font-bold uppercase tracking-widest text-gray-400">02 / Modalidad de Trabajo</div>
             <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8 text-balance text-center md:text-left">
                 <div>
                     <h3 class="text-lg font-bold mb-3 uppercase tracking-tighter">Liquidación Mensual</h3>
@@ -332,10 +364,10 @@
         </div>
     </section>
 
-    <!-- 04 / Disponibilidad -->
+    <!-- 03 / Disponibilidad -->
     <section class="px-6 border-b-2 border-black">
         <div class="max-w-7xl mx-auto py-12">
-            <h2 class="text-xs font-semibold uppercase tracking-widest mb-8 text-gray-400">04 / Disponibilidad Relevamientos</h2>
+            <h2 class="text-xs font-semibold uppercase tracking-widest mb-8 text-gray-400">03 / Disponibilidad Relevamientos</h2>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse min-w-[700px]">
                     <thead>
@@ -374,10 +406,10 @@
         </div>
     </section>
 
-    <!-- 05 / Legal -->
+    <!-- 04 / Legal -->
     <section class="px-6 border-b-2 border-black bg-gray-50">
         <div class="max-w-7xl mx-auto py-12 flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3 text-xs font-bold uppercase tracking-widest text-gray-400">05 / Aviso Legal</div>
+            <div class="md:w-1/3 text-xs font-bold uppercase tracking-widest text-gray-400">04 / Aviso Legal</div>
             <div class="md:w-2/3">
                 <details class="group border-t border-gray-300 cursor-pointer text-balance">
                     <summary class="flex justify-between items-center text-lg py-4 font-medium uppercase tracking-tight">
@@ -392,11 +424,11 @@
         </div>
     </section>
 
-    <!-- 06 / Contacto -->
+    <!-- 05 / Contacto -->
     <section id="contacto" class="px-6 py-16 bg-black text-white">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center justify-between text-balance">
             <div class="md:w-1/3 text-center md:text-left">
-                <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">06 / Contacto</h2>
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">05 / Contacto</h2>
                 <p class="text-3xl md:text-4xl font-medium tracking-tight">Comencemos a<br>trabajar.</p>
             </div>
             <div class="md:w-2/3 flex flex-col sm:flex-row gap-4 justify-end w-full">
@@ -427,9 +459,9 @@
         // Lógica Matemática
         const basePrices = { 1: 50, 2: 60, 3: 70 };
         const tiersInfo = {
-            1: { name: '0-100 m²', hsPerUnit: 3 },
-            2: { name: '101-200 m²', hsPerUnit: 4 },
-            3: { name: '201-300 m²', hsPerUnit: 5 }
+            1: { name: '0-100 m²', hsBase: 4, hsComp: 6 },
+            2: { name: '101-200 m²', hsBase: 5, hsComp: 7 },
+            3: { name: '201-300 m²', hsBase: 6, hsComp: 8 }
         };
 
         // Rangos para +300m2
@@ -444,49 +476,64 @@
         ];
 
         // Estado
-        let quantities = { 1: 10, 2: 0, 3: 0 };
-        let customItems = []; // Array of custom ranges added: { name, basePrice, hs, qty }
+        let quantitiesBase = { 1: 0, 2: 0, 3: 0 };
+        let quantitiesComp = { 1: 0, 2: 0, 3: 0 };
+        let customItems = []; // Array of custom ranges added: { name, basePrice, hs, qty, isComp }
 
         // --- Funciones para Cuponeras 1 a 3 ---
-        function updateQty(id, change) {
-            let current = parseInt(document.getElementById('qty' + id).value);
+        function updateQty(id, type, change) {
+            let typeCap = type.charAt(0).toUpperCase() + type.slice(1);
+            let el = document.getElementById('qty' + typeCap + id);
+            let current = parseInt(el.value);
             if (isNaN(current)) current = 0;
             let val = current + change;
             if (val < 0) val = 0;
-            if (val > 30) val = 30;
+            if (val > 15) val = 15;
             
-            document.getElementById('qty' + id).value = val;
-            document.getElementById('slider' + id).value = val;
-            quantities[id] = val;
+            el.value = val;
+            document.getElementById('slider' + typeCap + id).value = val;
+            
+            if (type === 'base') quantitiesBase[id] = val;
+            else quantitiesComp[id] = val;
+            
             renderAll();
         }
 
-        function updateFromInput(id, val) {
+        function updateFromInput(id, type, val) {
+            let typeCap = type.charAt(0).toUpperCase() + type.slice(1);
             let num = parseInt(val);
             if (isNaN(num) || num < 0) {
                 num = 0;
-            } else if (num > 30) {
-                num = 30;
-                document.getElementById('qty' + id).value = 30;
+            } else if (num > 15) {
+                num = 15;
+                document.getElementById('qty' + typeCap + id).value = 15;
             }
             
-            document.getElementById('slider' + id).value = num;
-            quantities[id] = num;
+            document.getElementById('slider' + typeCap + id).value = num;
+            
+            if (type === 'base') quantitiesBase[id] = num;
+            else quantitiesComp[id] = num;
+            
             renderAll();
         }
 
-        function updateFromSlider(id, val) {
+        function updateFromSlider(id, type, val) {
+            let typeCap = type.charAt(0).toUpperCase() + type.slice(1);
             let num = parseInt(val);
-            document.getElementById('qty' + id).value = num;
-            quantities[id] = num;
+            document.getElementById('qty' + typeCap + id).value = num;
+            
+            if (type === 'base') quantitiesBase[id] = num;
+            else quantitiesComp[id] = num;
+            
             renderAll();
         }
 
-        function forceValidQty(id) {
-            let el = document.getElementById('qty' + id);
+        function forceValidQty(id, type) {
+            let typeCap = type.charAt(0).toUpperCase() + type.slice(1);
+            let el = document.getElementById('qty' + typeCap + id);
             if (el.value === '' || parseInt(el.value) < 0 || isNaN(parseInt(el.value))) {
                 el.value = 0;
-                updateFromInput(id, 0);
+                updateFromInput(id, type, 0);
             }
         }
 
@@ -495,18 +542,24 @@
             const select = document.getElementById('customRangeSelect');
             const rangeIndex = parseInt(select.value);
             const selectedRange = extraRanges[rangeIndex];
+            const compCustom = document.getElementById('compCustom').checked;
 
-            // Buscar si ya existe este rango en el carrito de customItems
-            let existingItem = customItems.find(item => item.name === selectedRange.name);
+            // Buscar si ya existe este rango (y con el mismo estado de compartimentado)
+            let existingItem = customItems.find(item => item.name === selectedRange.name && item.isComp === compCustom);
             
             if (existingItem) {
-                existingItem.qty++;
+                if (existingItem.qty < 15) {
+                    existingItem.qty++;
+                } else {
+                    alert("El máximo solicitable es de 15 unidades por rango.");
+                }
             } else {
                 customItems.push({ 
                     name: selectedRange.name, 
                     basePrice: selectedRange.basePrice, 
                     hs: selectedRange.hs,
-                    qty: 1
+                    qty: 1,
+                    isComp: compCustom
                 });
             }
             
@@ -532,7 +585,7 @@
 
             // Calcular Qty Global (Fijos + Personalizados)
             for (let id = 1; id <= 3; id++) {
-                globalQty += quantities[id];
+                globalQty += quantitiesBase[id] + quantitiesComp[id];
             }
             globalQty += customItems.reduce((sum, item) => sum + item.qty, 0);
 
@@ -548,80 +601,119 @@
 
             // Renderizar Cuponeras 1 a 3
             for (let id = 1; id <= 3; id++) {
-                let qty = quantities[id];
+                let qtyBase = quantitiesBase[id];
+                let qtyComp = quantitiesComp[id];
+                let qtyTotal = qtyBase + qtyComp;
                 let info = tiersInfo[id];
                 
                 let baseUnitPrice = basePrices[id];
-                let currentUnitPrice = baseUnitPrice * priceMultiplier;
-                let subTotal = qty * currentUnitPrice;
-
-                document.getElementById('subTotal' + id).innerHTML = formatPrice(subTotal);
+                let compUnitPrice = basePrices[id] * 1.3;
                 
-                let currentHs = qty * info.hsPerUnit;
+                let currentBaseUnitPrice = baseUnitPrice * priceMultiplier;
+                let currentCompUnitPrice = compUnitPrice * priceMultiplier;
+                
+                let subTotalBase = qtyBase * currentBaseUnitPrice;
+                let subTotalComp = qtyComp * currentCompUnitPrice;
+                let subTotal = subTotalBase + subTotalComp;
+
+                let currentHs = (qtyBase * info.hsBase) + (qtyComp * info.hsComp);
                 document.getElementById('hs' + id).innerText = `${currentHs} hs`;
                 
-                let pricingAreaEl = document.getElementById('pricingArea' + id);
+                let headerAreaEl = document.getElementById('headerArea' + id);
+                let compPriceAreaEl = document.getElementById('compPriceArea' + id);
                 let discountBadge = '';
 
-                // Se muestra el descuento independientemente de si la cantidad local es 0
                 if (discountPercent > 0) {
-                    discountBadge = `<span class="text-xs bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-2 py-1 rounded shadow-sm inline-block">${discountPercent}% OFF</span>`;
+                    discountBadge = `<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-1.5 py-0.5 rounded shadow-sm inline-block">${discountPercent}% OFF</span>`;
                 }
 
                 let formattedBaseUnit = formatPrice(baseUnitPrice);
-                let formattedCurrentUnit = formatPrice(currentUnitPrice);
+                let formattedCurrentUnit = formatPrice(currentBaseUnitPrice);
+                let formattedSubtotal = formatPrice(subTotal);
 
-                if (globalQty === 0) {
-                    pricingAreaEl.innerHTML = `
+                let leftCol = '';
+                if (discountPercent > 0) {
+                    leftCol = `
                         <div class="flex flex-col">
-                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
-                            <span class="text-lg font-medium text-gray-400">${formattedBaseUnit}</span>
-                        </div>
-                        <div class="flex flex-col text-right opacity-50">
-                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Precio Unitario</span>
-                            <span class="text-3xl font-bold text-gray-800 leading-none">${formattedBaseUnit}</span>
-                        </div>
-                    `;
-                } else if (discountPercent > 0) {
-                    pricingAreaEl.innerHTML = `
-                        <div class="flex flex-col">
-                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
-                            <span class="text-lg font-medium text-gray-400 line-through">${formattedBaseUnit}</span>
-                        </div>
-                        <div class="flex flex-col text-right">
-                            <div class="flex items-center justify-end gap-2 mb-0.5">
-                                ${discountBadge}
-                                <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold">Tu Precio Unitario</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">Precio Base</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg font-medium text-gray-400 line-through">${formattedBaseUnit}</span>
+                                <span class="text-xl font-bold text-emerald-600">${formattedCurrentUnit}</span>
                             </div>
-                            <span class="text-3xl font-bold text-emerald-600 leading-none">${formattedCurrentUnit}</span>
                         </div>
                     `;
                 } else {
-                    pricingAreaEl.innerHTML = `
+                    leftCol = `
                         <div class="flex flex-col">
-                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">1 Unidad</span>
-                            <span class="text-lg font-medium text-gray-400">${formattedBaseUnit}</span>
-                        </div>
-                        <div class="flex flex-col text-right">
-                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Tu Precio Unitario</span>
-                            <span class="text-3xl font-bold text-gray-800 leading-none">${formattedCurrentUnit}</span>
+                            <span class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">Precio Base</span>
+                            <span class="text-xl font-medium text-gray-600">${formattedBaseUnit}</span>
                         </div>
                     `;
                 }
 
-                if (qty > 0) {
-                    globalTotal += subTotal;
-                    globalBaseTotal += qty * baseUnitPrice;
-                    globalHs += currentHs;
+                let rightCol = `
+                    <div class="flex flex-col text-right">
+                        <div class="flex items-center justify-end gap-2 mb-0.5">
+                            ${discountBadge}
+                            <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold">Subtotal</span>
+                        </div>
+                        <span class="text-3xl font-bold text-black leading-none">${formattedSubtotal}</span>
+                    </div>
+                `;
+                
+                headerAreaEl.innerHTML = leftCol + rightCol;
+
+                let formattedCompUnit = formatPrice(compUnitPrice);
+                let formattedCurrentCompUnit = formatPrice(currentCompUnitPrice);
+                let compHtml = '';
+                if (discountPercent > 0) {
+                     compHtml = `
+                        <div class="flex flex-col">
+                            <span class="text-[10px] uppercase tracking-widest text-emerald-600 font-bold mb-0.5">+30%</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium text-gray-400 line-through">${formattedCompUnit}</span>
+                                <span class="text-base font-bold text-emerald-600">${formattedCurrentCompUnit}</span>
+                            </div>
+                        </div>
+                     `;
+                } else {
+                     compHtml = `
+                        <div class="flex flex-col">
+                            <span class="text-[10px] uppercase tracking-widest text-gray-500 mb-0.5">+30%</span>
+                            <span class="text-base font-medium text-gray-600">${formattedCompUnit}</span>
+                        </div>
+                     `;
+                }
+                compPriceAreaEl.innerHTML = compHtml;
+
+                if (qtyBase > 0) {
+                    globalTotal += subTotalBase;
+                    globalBaseTotal += qtyBase * baseUnitPrice;
                     
-                    // UI Cart
                     cartHtml += `
                     <div class="flex justify-between items-center text-sm mb-3">
                         <div>
-                            <div class="font-bold text-black">${qty}x Relevamiento ${info.name}</div>
+                            <div class="font-bold text-black">${qtyBase}x Relevamiento ${info.name} (Poco Comp.)</div>
                         </div>
-                        <div class="font-medium text-gray-700">${formatPrice(subTotal)}</div>
+                        <div class="font-medium text-gray-700">${formatPrice(subTotalBase)}</div>
                     </div>`;
+                }
+                
+                if (qtyComp > 0) {
+                    globalTotal += subTotalComp;
+                    globalBaseTotal += qtyComp * compUnitPrice;
+                    
+                    cartHtml += `
+                    <div class="flex justify-between items-center text-sm mb-3">
+                        <div>
+                            <div class="font-bold text-black">${qtyComp}x Relevamiento ${info.name} (Muy Comp.)</div>
+                        </div>
+                        <div class="font-medium text-gray-700">${formatPrice(subTotalComp)}</div>
+                    </div>`;
+                }
+                
+                if (qtyBase > 0 || qtyComp > 0) {
+                    globalHs += (qtyBase * info.hsBase) + (qtyComp * info.hsComp);
                 }
             }
 
@@ -631,36 +723,17 @@
             let customHsTotalSum = 0;
             let customListHtml = '';
 
-            let pricingArea4 = document.getElementById('pricingArea4');
-            if (globalQty === 0) {
-                pricingArea4.innerHTML = `
-                    <div class="flex flex-col text-right w-full opacity-50">
-                        <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Descuentos Automáticos</span>
-                        <span class="text-lg font-bold text-gray-800 leading-none">A partir de 10 un.</span>
-                    </div>
-                `;
-            } else if (discountPercent > 0) {
-                pricingArea4.innerHTML = `
-                    <div class="flex flex-col justify-end w-full text-right">
-                        <div class="flex items-center justify-end gap-2 mb-0.5">
-                            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-2 py-1 rounded shadow-sm inline-block">${discountPercent}% OFF</span>
-                            <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold">En todos los rangos</span>
-                        </div>
-                    </div>
-                `;
-            } else {
-                pricingArea4.innerHTML = `
-                    <div class="flex flex-col text-right w-full">
-                        <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Faltan unidades</span>
-                        <span class="text-sm font-bold text-gray-800 leading-none">Para el próximo descuento</span>
-                    </div>
-                `;
+            let headerArea4 = document.getElementById('headerArea4');
+            let discountBadge4 = '';
+            if (discountPercent > 0) {
+                discountBadge4 = `<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold uppercase tracking-widest px-1.5 py-0.5 rounded shadow-sm inline-block">${discountPercent}% OFF</span>`;
             }
 
             customItems.forEach((item, index) => {
-                let currentUnitPrice = item.basePrice * priceMultiplier;
+                let effectiveBasePrice = item.isComp ? item.basePrice * 1.3 : item.basePrice;
+                let currentUnitPrice = effectiveBasePrice * priceMultiplier;
                 
-                let itemTotalBase = item.basePrice * item.qty;
+                let itemTotalBase = effectiveBasePrice * item.qty;
                 let itemTotalDiscounted = currentUnitPrice * item.qty;
                 let itemHs = item.hs * item.qty;
 
@@ -674,10 +747,15 @@
                 } else {
                     displayPrice = `<span class="text-gray-800">${formatPrice(itemTotalDiscounted)}</span>`;
                 }
+                
+                let displayName = item.name;
+                if (item.isComp) displayName += ' <span class="text-[10px] bg-gray-200 px-1 rounded ml-1 text-gray-600 font-normal">Muy Comp.</span>';
+                else displayName += ' <span class="text-[10px] bg-gray-200 px-1 rounded ml-1 text-gray-600 font-normal">Poco Comp.</span>';
+                let cartDisplayName = item.name + (item.isComp ? ' (Muy Comp.)' : ' (Poco Comp.)');
 
                 customListHtml += `
                     <li class="flex justify-between items-center text-sm bg-gray-50 px-3 py-2.5 rounded-sm border border-gray-200 shadow-sm">
-                        <div class="font-bold text-gray-700">${item.qty}x Relevamiento ${item.name}</div>
+                        <div class="font-bold text-gray-700">${item.qty}x Relevamiento ${displayName}</div>
                         <div class="flex items-center gap-4 font-bold">
                             <div>${displayPrice}</div>
                             <button onclick="removeCustomItem(${index})" class="text-gray-400 hover:text-red-500 transition-colors p-1" title="Eliminar una unidad">
@@ -690,15 +768,50 @@
                 cartHtml += `
                 <div class="flex justify-between items-center text-sm mb-3">
                     <div>
-                        <div class="font-bold text-black">${item.qty}x Relevamiento ${item.name}</div>
+                        <div class="font-bold text-black">${item.qty}x Relevamiento ${cartDisplayName}</div>
                     </div>
                     <div class="font-medium text-gray-700">${formatPrice(itemTotalDiscounted)}</div>
                 </div>`;
             });
 
-            document.getElementById('customItemsList').innerHTML = customListHtml;
-            document.getElementById('subTotal4').innerHTML = formatPrice(customTotalSum);
             document.getElementById('hs4').innerText = `${customHsTotalSum} hs`;
+
+            let leftCol4 = '';
+            if (globalQty === 0) {
+                leftCol4 = `
+                    <div class="flex flex-col text-left opacity-50">
+                        <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Descuentos Automáticos</span>
+                        <span class="text-lg font-bold text-gray-800 leading-none">A partir de 10 un.</span>
+                    </div>
+                `;
+            } else if (discountPercent > 0) {
+                leftCol4 = `
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] uppercase tracking-widest text-emerald-600 font-bold mb-0.5">Descuento Activo</span>
+                        <span class="text-lg font-bold text-emerald-600 leading-none">En todos los rangos</span>
+                    </div>
+                `;
+            } else {
+                leftCol4 = `
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold mb-0.5">Faltan unidades</span>
+                        <span class="text-sm font-bold text-gray-800 leading-none">Para el próximo descuento</span>
+                    </div>
+                `;
+            }
+
+            let rightCol4 = `
+                <div class="flex flex-col text-right">
+                    <div class="flex items-center justify-end gap-2 mb-0.5">
+                        ${discountBadge4}
+                        <span class="text-[9px] uppercase tracking-widest text-gray-800 font-bold">Subtotal (+300m²)</span>
+                    </div>
+                    <span class="text-3xl font-bold text-black leading-none">${formatPrice(customTotalSum)}</span>
+                </div>
+            `;
+
+            headerArea4.innerHTML = leftCol4 + rightCol4;
+            document.getElementById('customItemsList').innerHTML = customListHtml;
 
             globalBaseTotal += customBaseTotalSum;
             globalTotal += customTotalSum;
@@ -763,7 +876,7 @@
             let globalBaseTotal = 0;
 
             for (let id = 1; id <= 3; id++) {
-                globalQty += quantities[id];
+                globalQty += quantitiesBase[id] + quantitiesComp[id];
             }
             globalQty += customItems.reduce((sum, item) => sum + item.qty, 0);
 
@@ -777,18 +890,29 @@
             let priceMultiplier = 1 - (discountPercent / 100);
 
             for (let id = 1; id <= 3; id++) {
-                let qty = quantities[id];
-                if (qty > 0) {
-                    items.push(`- ${qty}x Relevamiento ${tiersInfo[id].name}`);
-                    globalBaseTotal += qty * basePrices[id];
-                    globalTotal += qty * (basePrices[id] * priceMultiplier);
+                let qtyBase = quantitiesBase[id];
+                let qtyComp = quantitiesComp[id];
+                let baseP = basePrices[id];
+                let compP = basePrices[id] * 1.3;
+
+                if (qtyBase > 0) {
+                    items.push(`- ${qtyBase}x Relevamiento ${tiersInfo[id].name} (Poco Comp.)`);
+                    globalBaseTotal += qtyBase * baseP;
+                    globalTotal += qtyBase * (baseP * priceMultiplier);
+                }
+                if (qtyComp > 0) {
+                    items.push(`- ${qtyComp}x Relevamiento ${tiersInfo[id].name} (Muy Comp.)`);
+                    globalBaseTotal += qtyComp * compP;
+                    globalTotal += qtyComp * (compP * priceMultiplier);
                 }
             }
 
             customItems.forEach(item => {
-                items.push(`- ${item.qty}x Relevamiento ${item.name}`);
-                globalBaseTotal += item.basePrice * item.qty;
-                globalTotal += (item.basePrice * priceMultiplier) * item.qty;
+                let baseP = item.isComp ? item.basePrice * 1.3 : item.basePrice;
+                let name = item.name + (item.isComp ? ' (Muy Comp.)' : ' (Poco Comp.)');
+                items.push(`- ${item.qty}x Relevamiento ${name}`);
+                globalBaseTotal += baseP * item.qty;
+                globalTotal += (baseP * priceMultiplier) * item.qty;
             });
 
             if (items.length === 0) return;
@@ -870,7 +994,7 @@
                     let globalHs = 0;
 
                     for (let id = 1; id <= 3; id++) {
-                        globalQty += quantities[id];
+                        globalQty += quantitiesBase[id] + quantitiesComp[id];
                     }
                     globalQty += customItems.reduce((sum, item) => sum + item.qty, 0);
 
@@ -885,19 +1009,41 @@
 
                     // Items fijos
                     for (let id = 1; id <= 3; id++) {
-                        let qty = quantities[id];
-                        if (qty > 0) {
-                            let basePrice = basePrices[id];
-                            let itemTotal = qty * basePrice;
+                        let qtyBase = quantitiesBase[id];
+                        let qtyComp = quantitiesComp[id];
+                        let baseP = basePrices[id];
+                        let compP = basePrices[id] * 1.3;
+
+                        if (qtyBase > 0) {
+                            let itemTotal = qtyBase * baseP;
                             globalBaseTotal += itemTotal;
                             let itemTotalDiscounted = itemTotal * priceMultiplier;
                             globalTotal += itemTotalDiscounted;
-                            globalHs += qty * tiersInfo[id].hsPerUnit;
+                            globalHs += qtyBase * tiersInfo[id].hsBase;
 
                             doc.setFont("helvetica", "bold");
                             doc.setFontSize(11);
                             doc.setTextColor(0, 0, 0);
-                            doc.text(`${qty}x Relevamiento ${tiersInfo[id].name}`, marginX, startY);
+                            doc.text(`${qtyBase}x Relevamiento ${tiersInfo[id].name} (Poco Comp.)`, marginX, startY);
+
+                            doc.setFont("helvetica", "normal");
+                            doc.setTextColor(50, 50, 50);
+                            doc.text(formatPrice(itemTotal), pageWidth - marginX, startY, { align: "right" });
+
+                            startY += 10;
+                        }
+                        
+                        if (qtyComp > 0) {
+                            let itemTotal = qtyComp * compP;
+                            globalBaseTotal += itemTotal;
+                            let itemTotalDiscounted = itemTotal * priceMultiplier;
+                            globalTotal += itemTotalDiscounted;
+                            globalHs += qtyComp * tiersInfo[id].hsComp;
+
+                            doc.setFont("helvetica", "bold");
+                            doc.setFontSize(11);
+                            doc.setTextColor(0, 0, 0);
+                            doc.text(`${qtyComp}x Relevamiento ${tiersInfo[id].name} (Muy Comp.)`, marginX, startY);
 
                             doc.setFont("helvetica", "normal");
                             doc.setTextColor(50, 50, 50);
@@ -909,17 +1055,20 @@
 
                     // Items custom
                     customItems.forEach(item => {
-                        let itemBaseTotal = item.basePrice * item.qty;
+                        let baseP = item.isComp ? item.basePrice * 1.3 : item.basePrice;
+                        let itemBaseTotal = baseP * item.qty;
                         let itemTotalDiscounted = itemBaseTotal * priceMultiplier;
 
                         globalBaseTotal += itemBaseTotal;
                         globalTotal += itemTotalDiscounted;
                         globalHs += item.hs * item.qty;
 
+                        let name = item.name + (item.isComp ? ' (Muy Comp.)' : ' (Poco Comp.)');
+
                         doc.setFont("helvetica", "bold");
                         doc.setFontSize(11);
                         doc.setTextColor(0, 0, 0);
-                        doc.text(`${item.qty}x Relevamiento ${item.name}`, marginX, startY);
+                        doc.text(`${item.qty}x Relevamiento ${name}`, marginX, startY);
 
                         doc.setFont("helvetica", "normal");
                         doc.setTextColor(50, 50, 50);
